@@ -1,0 +1,132 @@
+@import url('./abstracts/vars.css');
+
+@import url('./base/typography.css');
+@import url('./base/base.css');
+
+@import url('./layout/footer.css');
+@import url('./layout/header.css'); 
+@import url('./layout/grid.css');
+@import url('./layout/navigation.css');
+@import url('./layout/forms.css');
+
+@import url('./components/components.css');
+
+/*MENU*/
+
+/*SWIPER*/
+
+/*POPULAR FOOD*/
+
+/*SUBSCRIBE*/
+
+/*FOOD DESCRIPTION*/
+
+/*CATEGORIES*/
+
+/*ANIMATIONS*/
+
+@media (max-width:767.98px) {
+
+    .swiper {
+        width: 15rem;
+        height: 30rem;
+    }
+
+    .popular-card-text {
+        margin-top: 2rem;
+    }
+
+    .header-container-food {
+        flex-direction: column;
+        padding: 2rem 2rem;
+        text-align: center;
+    }
+
+    .order-btn2 {
+        padding: 2rem 2rem;
+    }
+
+    .nav-list {
+        display: grid;
+        position: fixed;
+        margin: 0;
+        right: -80rem;
+        top: 0;
+        width: 50%;
+        height: 100vh;
+        background: var(--clr-white);
+        align-content: center;
+        text-align: left;
+        padding-left: 2rem;
+        z-index: 2;
+        transition: right .5s;
+    }
+
+    .hero-container {
+        height: min(70rem, 75rem);
+    }
+
+    .hero-text-container {
+        width: 100%;
+    }
+
+    .hero-main {
+        text-align: center;
+        justify-items: center;
+        flex-direction: column-reverse;
+        padding: 2rem 2rem;
+    }
+
+    .hero-img-container {
+        width: 100%;
+    }
+
+    .menu-container {
+        margin-bottom: 3rem;
+    }
+
+    .why-us-container {
+        display: block;
+        align-content: center;
+        margin-bottom: 3rem;
+        margin-top: 3rem;
+        gap: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cards_mainDishes-container {
+        display: grid;
+        grid-template-rows: 1fr;
+        gap: 1rem;
+    }
+
+    .card2 {
+        max-width: 15rem;
+
+    }
+
+    .logo {
+        width: 70%;
+        display: flex;
+    }
+
+    /* .main-login{
+        margin-top: 50px;
+    }
+
+    .back-box{
+        max-width: 350px;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .back-box div{
+        margin: 0px;
+        position: absolute;
+    }  */
+
+
+
+
+}

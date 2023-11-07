@@ -1,0 +1,35 @@
+/*FOOTER*/
+.footer-container {
+    width: 100%;
+    border-top: solid var(--clr-blue);
+    padding: 1rem 8rem;
+    font-family: var(--ff-main);
+    border-top-right-radius: 6rem;
+    border-top-left-radius: 6rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 2rem;
+}
+
+.social-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    gap: 1rem;
+    width: 40%;
+    align-items: center;
+}
+
+.nav-bottom-list {
+    display: grid;
+    list-style-type: none;
+    margin-top: 1rem;
+    gap: .5rem;
+}
+
+.footer-link-text {
+    text-decoration: none;
+    color: var(--clr-blue);
+}

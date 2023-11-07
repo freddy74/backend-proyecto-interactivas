@@ -1,0 +1,52 @@
+.hero-container {
+    background: url(../../imgs/background-hero.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: min(45rem, 65rem, 70rem);
+    gap: 2rem;
+    text-align: center;
+    color: var(--clr-white);
+    width: 100%;
+    background-color: var(--clr-gray);
+    border-bottom-right-radius: 10rem;
+    border-bottom-left-radius: 10rem;
+    margin-bottom: 5rem;
+}
+
+.hero-container2 {
+    width: 100%;
+    background: url(../../imgs/wood_background.png) no-repeat 10% 50%;
+    background-color: var(--clr-gray);
+    background-size: cover;
+}
+
+.hero-section {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 3rem;
+}
+
+.header-container-food {
+    width: 100%;
+    height: min(40rem, 50rem, 55rem);
+    display: flex;
+    padding: 2rem 8rem;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    margin-top: 4rem;
+}
+
+.hero-container3 {
+    width: 100vw;
+    height: 30rem;
+    background: url(../../imgs/main-dishes_hero.png) no-repeat 50% 50%;
+    background-size: cover;
+    top: 0;
+    border-bottom-left-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+    background-color: var(--clr-gray);
+    margin-bottom: 5rem;
+}

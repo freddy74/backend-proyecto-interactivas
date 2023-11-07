@@ -1,0 +1,163 @@
+.read-more-btn {
+    padding: .75rem 2rem;
+    width: fit-content;
+    background: var(--clr-white);
+    border-radius: 2rem;
+    border: none;
+    color: var(--clr-blue);
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--ff-main);
+    font-size: var(--fs-xxs);
+    font-weight: var(--fw-bold);
+    margin-top: 5rem;
+}
+
+.go-back_button {
+    padding: 1rem 3rem;
+    background: none;
+    border-radius: 2rem;
+    border: none;
+    color: var(--clr-white);
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--ff-main);
+    font-size: var(--fs-xs2);
+    font-weight: var(--fw-bold);
+    border: solid var(--clr-white);
+    margin-left: 8rem;
+    transition: transform 0.2s ease-in-out;
+    transition: background-color 0.3s;
+}
+
+.order-btn2 {
+    padding: 1.5rem 8rem;
+    background: var(--clr-yellow);
+    border-radius: 2rem;
+    border: none;
+    color: var(--clr-white);
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--ff-main);
+    font-size: var(--fs-xs2);
+    font-weight: var(--fw-bold);
+    margin-top: 2rem;
+    transition: transform 0.2s ease-in-out;
+    transition: background-color 0.3s;
+}
+
+.popular-btn-cont {
+    margin: 2rem;
+    margin-bottom: 4rem;
+}
+
+.submit-btn {
+    background: var(--clr-orange);
+    border: none;
+    background-repeat: no-repeat;
+    border-radius: 0.75rem;
+    background-position: center;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 10%;
+    gap: 30rem;
+    margin: 1rem 10%;
+}
+
+.go-back_button3 {
+    padding: 1rem 3rem;
+    background: none;
+    border-radius: 2rem;
+    border: none;
+    color: var(--clr-white);
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--ff-main);
+    font-size: var(--fs-xs2);
+    font-weight: var(--fw-bold);
+    border: solid var(--clr-white);
+    transition: transform 0.2s ease-in-out;
+    transition: background-color 0.3s;
+}
+
+.go-next_button3 {
+    padding: 1rem 3rem;
+    background: none;
+    border-radius: 2rem;
+    border: none;
+    color: var(--clr-white);
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--ff-main);
+    font-size: var(--fs-xs2);
+    font-weight: var(--fw-bold);
+    border: solid var(--clr-white);
+    transition: transform 0.2s ease-in-out;
+    transition: background-color 0.3s;
+}
+
+.card2 .btn2 {
+    background-color: var(--clr-orange);
+    color: var(--clr-white);
+    border: none;
+    border-radius: 4px;
+    padding: 0.625rem 1.25rem;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-btn {
+    padding: 1.25rem 7rem;
+    background: var(--clr-orange);
+    border-radius: 2rem;
+    border: none;
+    color: var(--clr-white);
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--ff-main);
+    font-size: var(--fs-xxs);
+    font-weight: var(--fw-bold);
+    transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #ffc80087;
+}
+
+.btn2:hover {
+    background-color: #ff3300;
+}
+
+.go-back_button3:hover {
+    transform: scale(1.05);
+    background-color: #f7f6f697;
+}
+
+.go-next_button3:hover {
+    transform: scale(1.05);
+    background-color: #f7f6f697;
+}
+
+.go-back_button:hover {
+    transform: scale(1.05);
+    background-color: #f7f6f697;
+}
+
+@media (max-width:767.98px) {
+
+    .buttons-container {
+        gap: 2rem;
+        margin: 0;
+    }
+
+    .go-back_button {
+        margin-left: 5rem;
+    }
+}

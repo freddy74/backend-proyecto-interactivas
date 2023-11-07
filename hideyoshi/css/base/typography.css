@@ -1,0 +1,160 @@
+.hero-title {
+    font-family: var(--ff-secondary);
+    font-size: clamp(var(--fs-l), 3.75rem, var(--fs-xl));
+    font-weight: var(--fw-bold);
+    text-align: center;
+}
+
+.hero-title-yellow {
+    color: rgb(240, 212, 0);
+    margin-bottom: 2rem;
+    font-weight: var(--fw-bold);
+}
+
+.hero-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    font-weight: var(--fw-light);
+}
+
+.hero-text {
+    width: clamp(30ch, 50%, 60ch);
+    margin: 0 auto 3rem;
+    font-size: var(--fs-xxs);
+    font-family: var(--ff-main);
+    font-weight: var(--fw-light);
+}
+
+.menu-title {
+    color: var(--clr-white);
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-xxl);
+    font-weight: var(--fw-bold);
+    text-align: left;
+    border-radius: 3rem;
+    padding-top: 2rem;
+    text-align: center;
+    font-weight: var(--fw-bold);
+}
+
+.popular-title {
+    color: #ffa200;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    text-align: center;
+    border-radius: 3rem;
+    height: 30%;
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.text-card {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-secondary);
+    color: var(--clr-white);
+    font-weight: var(--fw-light);
+}
+
+.selected-title {
+    font-size: 3rem;
+}
+
+.selected-description {
+    font-size: var(--fs-xxs);
+    font-family: var(--ff-main);
+    color: var(--clr-white);
+}
+
+.selected-price {
+    font-size: var(--fs-m);
+    color: var(--clr-white);
+}
+
+
+.popular-text {
+    font-family: var(--ff-main);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    text-align: center;
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    color: var(--clr-black);
+}
+
+.food-description {
+    font-size: var(--fs-xs2);
+    font-family: var(--ff-main);
+    color: var(--clr-white);
+    margin-top: 2rem;
+}
+
+.food-price {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-l);
+    font-weight: var(--fw-bold);
+    color: var(--clr-white);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.food-title {
+    font-size: var(--fs-xl);
+    font-family: var(--ff-secondary);
+    font-weight: var(--fw-bold);
+    color: var(--clr-white);
+}
+
+.price2 {
+    font-size: var(--fs-xs);
+    font-weight: bold;
+    color: var(--clr-black);
+    margin: 0.625rem 0;
+    text-decoration: none;
+}
+
+.main-dishes-title {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    color: var(--clr-white);
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.main-dishes-title-japanese {
+    font-family: var(--ff-main);
+    font-size: var(--fs-l);
+    font-weight: var(--fw-bold);
+    color: var(--clr-white);
+    text-align: center;
+    text-decoration: none;
+}
+
+.card2-h2 {
+    font-size: 1.5em;
+    margin: 0.625rem 0;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-xs);
+    text-decoration: none;
+}
+
+.card2-p {
+    font-family: var(--ff-main);
+    font-size: var(--fs-xxs);
+    color: var(--clr-gray);
+    text-decoration: none;
+}
+
+
+.login-title{
+    text-align: center;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-l);
+    margin-bottom: 1rem;
+}
