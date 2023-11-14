@@ -14,7 +14,7 @@
     <style>
         body {
             /* background: url(../imgs/background-hero.png); */
-            background: var(--clr-cian);
+            background: url(../../imgs/login_background.png);
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -58,9 +58,9 @@
         }
 
         .login-btn {
-            background: var(--clr-yellow);
+            background-color: var(--clr-orange);
             font-weight: bold;
-            color: var(--clr-black);
+            color: var(--clr-white);
             padding: 1rem;
             border: none;
             border-radius: 1rem;
@@ -92,6 +92,7 @@
 
         .sign-up-link {
             font-size: 12px;
+            text-decoration: none;
         }
 
         /* .box-container {
@@ -202,7 +203,7 @@
             <ul class="nav-list">
                 <li><a class="nav-list-link" href="../index.html">Home</a></li>
                 <li><a class="nav-list-link" href="#">Locations</a></li>
-                <li><img class="logo" src="../imgs/Hideyoshi.png" alt="logo"></li>
+                <li><img class="logo" src="../../imgs/Hideyoshi.png" alt="logo"></li>
                 <li><a class="nav-list-link" href="#">Deliver</a></li>
                 <li><a class="nav-list-link" href="#">About</a></li>
             </ul>
