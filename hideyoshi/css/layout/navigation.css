@@ -10,14 +10,16 @@
 .nav-list {
     font-family: var(--ff-secondary);
     font-size: var(--fs-xxs);
-    font-size: 18px;
     font-weight: var(--fw-regular);
+    font-size: 18px;
+
     list-style-type: none;
     text-decoration: none;
-    display: flex;
     gap: 8rem;
     transition: transform 0.2s ease-in-out;
+
     align-items: center;
+    display: flex;
 }
 
 .nav-list-link {
@@ -76,6 +78,30 @@
 
 @media (max-width: 1053px) {
 
+    .nav-list {
+        display: grid;
+        position: fixed;
+        margin: 0;
+        top: 0;
+        right: -20rem;
+        width: 50%;
+        height: 100vh;
+        background: black;
+        align-content: center;
+        text-align: left;
+        padding-left: 2rem;
+        z-index: 3;
+        transition: right .5s;
+        gap: 3rem;
+    }
+
+    .responsive-top {
+        display: grid;
+        top: 9rem;
+        z-index: 3;
+        background: none;
+    }
+
     .mobile-btn {
         position: fixed;
         top: 4rem;
@@ -91,7 +117,8 @@
         display: block;
         position: absolute;
         width: 100%;
-        height: 0.5rem;
+        height: 0.2rem;
+        color: wheat;
         background: var(--clr-white);
         transition-duration: .25s;
     }
@@ -129,24 +156,8 @@
         transform: rotate(90deg);
     }
 
-    .mobile-check:checked~.nav-list {
-        right: 0rem;
-    }
-
-    .nav-list {
-        display: grid;
-        position: fixed;
-        margin: 0;
-        right: -60rem;
-        top: 0;
-        width: 50%;
-        height: 100vh;
-        background: var(--clr-black);
-        align-content: center;
-        text-align: left;
-        padding-left: 2rem;
-        z-index: 2;
-        transition: right .5s;
+    mobile-check:checked~.nav-list {
+        right: 0;
     }
 
     .nav-list2 {
@@ -180,5 +191,4 @@
         z-index: 2;
         transition: right .5s;
     }
-
 }

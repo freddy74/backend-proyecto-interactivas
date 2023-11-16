@@ -19,13 +19,18 @@
             <ul class="nav-list">
                 <li><a class="nav-list-link" href="./index.php">Home</a></li>
                 <li><a class="nav-list-link" href="#">Locations</a></li>
-
-                <li><img class="logo" src="../imgs/Hideyoshi.png" alt="logo"></li>
-
+            </ul>
+            <img class="logo" src="../imgs/Hideyoshi.png" alt="logo">
+            <ul class="responsive-top nav-list">
                 <li><a class="nav-list-link" href="#">Deliver</a></li>
                 <li><a class="nav-list-link" href="#">About</a></li>
             </ul>
         </nav>
+        <input class="mobile-check" type="checkbox">
+        <label class="mobile-btn">
+            <span></span>
+        </label>
+        </div>
         <section class="hero-text-container">
             <h1 class="hero-title">Enjoy the most traditional</h1>
             <h2 class="hero-title-yellow hero-title">Japanese Food!</h2>
@@ -38,7 +43,7 @@
             </div>
         </section>
     </header>
-    
+
     <section class="menu-container2">
         <div class="menu-cards">
             <div class="card">
