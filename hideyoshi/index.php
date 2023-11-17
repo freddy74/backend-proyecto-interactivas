@@ -15,7 +15,13 @@
 
 <body class="body1">
     <header class="hero-container">
+
         <nav class="top-nav">
+        <input class="mobile-check" type="checkbox">
+           
+            <label class="mobile-btn">
+                <span></span>
+            </label>
             <ul class="nav-list">
                 <li><a class="nav-list-link" href="./index.php">Home</a></li>
                 <li><a class="nav-list-link" href="#">Locations</a></li>
@@ -25,12 +31,9 @@
                 <li><a class="nav-list-link" href="#">Deliver</a></li>
                 <li><a class="nav-list-link" href="#">About</a></li>
             </ul>
+            
         </nav>
-        <input class="mobile-check" type="checkbox">
-        <label class="mobile-btn">
-            <span></span>
-        </label>
-        </div>
+        
         <section class="hero-text-container">
             <h1 class="hero-title">Enjoy the most traditional</h1>
             <h2 class="hero-title-yellow hero-title">Japanese Food!</h2>

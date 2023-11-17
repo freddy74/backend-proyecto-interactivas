@@ -76,6 +76,13 @@
     color: var(--clr-white);
 }
 
+.mobile-check{
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    top: 10;
+}
+
 @media (max-width: 1053px) {
 
     .nav-list {
@@ -83,14 +90,14 @@
         position: fixed;
         margin: 0;
         top: 0;
-        right: -20rem;
+        right: -60rem;
         width: 50%;
         height: 100vh;
         background: black;
         align-content: center;
         text-align: left;
         padding-left: 2rem;
-        z-index: 3;
+        z-index: 2;
         transition: right .5s;
         gap: 3rem;
     }
@@ -108,7 +115,7 @@
         right: 2rem;
         width: 1.5rem;
         height: .2rem;
-        z-index: 3;
+        z-index: 4;
     }
 
     .mobile-btn>span,
@@ -138,25 +145,25 @@
         position: fixed;
         top: 3.5rem;
         right: 2.25rem;
-        z-index: 4;
+        z-index: 5;
     }
 
     /* especificacion: cuando el check esté seleccionado (activo) y sea dentro de mobile.span, se rota 45grados */
-    .mobile-check:checked+.mobile-btn>span {
+    .mobile-check:checked~.mobile-btn>span {
         transform: rotate(45deg);
     }
 
-    .mobile-check:checked+.mobile-btn>span::before {
+    .mobile-check:checked~.mobile-btn>span::before {
         top: 0;
         transform: rotate(0deg);
     }
 
-    .mobile-check:checked+.mobile-btn>span::after {
+    .mobile-check:checked~.mobile-btn>span::after {
         top: 0;
         transform: rotate(90deg);
     }
 
-    mobile-check:checked~.nav-list {
+    .mobile-check:checked~.nav-list {
         right: 0;
     }
 
