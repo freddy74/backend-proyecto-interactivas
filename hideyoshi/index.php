@@ -31,7 +31,6 @@
                 <li><a class="nav-list-link" href="#">Deliver</a></li>
                 <li><a class="nav-list-link" href="#">About</a></li>
             </ul>
-            
         </nav>
         
         <section class="hero-text-container">

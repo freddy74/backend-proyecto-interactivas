@@ -1,0 +1,55 @@
+*{
+    font-family: var(--ff-main);
+}
+
+.container {
+    display: grid;
+    width: 100vw;
+    font-family: var(--ff-main);
+    justify-items: center;
+}
+
+label {
+    font-family: var(--ff-secondary);
+}
+
+input {
+    border-radius: 2rem;
+    padding: .3rem;
+}
+
+.form-items{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+input, textarea, select{
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+#preview{
+    display: block;
+    width: 30%;
+}
+
+input[type='file'] {
+    background: var(--clr-yellow);
+    color: transparent;
+    padding: 1rem 0;
+}
+
+input[type='file']::before {
+    content: 'Pick an image file';
+    color: white;
+    margin: 0 .7rem;
+  }
+
+thead{
+    font-weight: bold;
+}
+
+td{
+    padding: .7rem;
+}
