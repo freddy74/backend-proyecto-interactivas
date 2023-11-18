@@ -61,13 +61,14 @@
         }
 
         $database->update("tb_dishes",[
+
             "people_category_id"=>$_POST["people_category"],
             "category_id"=>$_POST["category"],
             "dish_name"=>$_POST["dish_name"],
             "dish_description"=>$_POST["dish_description"],
+            "dish_featured"=>$_POST["dish_featured"],
 
-
-           // "destination_lname_tr"=>$_POST["destination_lname_tr"],
+           // "destination_lname_tr"=>$_POST["d estination_lname_tr"],
            // "destination_sname_tr"=>$_POST["destination_sname_tr"],
            // "destination_description_tr"=>$_POST["destination_description_tr"],
             "dish_image"=>$img,
@@ -102,12 +103,11 @@
 
 
        
-            
 
             
             <div class="form-items">
-                <label for="dish_category">People Category</label>
-                <select name="dish_category" id="dish_category">
+                <label for="people_category">People Category</label>
+                <select name="people_category" id="people_category">
                 <?php 
                     foreach($people_categories as $people_category){
                         if($item[0]["people_category_id"]==$people_category["people_category_id"]){
@@ -140,8 +140,8 @@
 
 
             <div class="form-items">
-                <label for="camping_category">Dish Category</label>
-                <select name="camping_category" id="camping_category">
+                <label for="category">Dish Category</label>
+                <select name="category" id="category">
                     <?php 
 
                         foreach($categories as $category){
