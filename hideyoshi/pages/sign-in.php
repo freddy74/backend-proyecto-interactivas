@@ -54,7 +54,7 @@ if ($_POST) {
         form {
             background-color: #fff;
             padding: 2.5rem;
-            border-radius: 0.625rem;
+            border-radius: 3rem;
             box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
             width: 25rem;
             text-align: left;
@@ -144,6 +144,7 @@ if ($_POST) {
 </head>
 
 <body>
+
 
     <main>
         <section class='activity'>

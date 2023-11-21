@@ -15,7 +15,7 @@
                 <li><a class="nav-list-link2" href="../index.html">Home</a></li>
                 <li><a class="nav-list-link2" href="#">Locations</a></li>
             </ul>
-            <img class="logo" src="../imgs/Hideyoshi.png" alt="logo">
+            <img class="logo" src="../../imgs/Hideyoshi.png" alt="logo">
             <ul class="nav-list2">
                 <li><a class="nav-list-link2" href="#">Deliver</a></li>
                 <li><a class="nav-list-link2" href="#">About</a></li>
@@ -35,7 +35,7 @@
                 <a class="order-btn2" href="">Add to Cart</a>
             </section>
             <div class="hero-img-container">
-                <img class="hero-image" src="../imgs/teriyaki.png" alt="teriyaki">
+                <img class="hero-image" src="../../imgs/teriyaki.png" alt="teriyaki">
             </div>
         </div>
     </header>

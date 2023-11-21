@@ -249,7 +249,7 @@
             <button class="login-btn" type="submit">Log In</button>
             <div class="sign-up-cta">
                 <h2>Not a member yet?</h2>
-                <a class="sign-up-link" href="#">Create account!</a>
+                <a class="sign-up-link" href="sign-in.php">Create account!</a>
             </div>
         </form>
     </main>

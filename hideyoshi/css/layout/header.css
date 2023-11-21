@@ -16,7 +16,7 @@
 
 .hero-container2 {
     width: 100%;
-    background: url(../../../imgs/wood_background.png) no-repeat 10% 50%;
+    /*background: url(../../../imgs/wood_background.png) no-repeat 10% 50%;*/
     background-color: var(--clr-gray);
     background-size: cover;
 }

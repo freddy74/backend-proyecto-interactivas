@@ -18,6 +18,8 @@
             "tb_dishes.dish_featured",
             "tb_dishes.dish_description",
             "tb_dishes.dish_price",
+            "tb_dishes.dish_name_jp",
+            "tb_dishes.dish_description_jp",
             
         ],[
             "dish_id"=>$_GET["dish_id"]
@@ -66,11 +68,15 @@
             "category_id"=>$_POST["category"],
             "dish_name"=>$_POST["dish_name"],
             "dish_description"=>$_POST["dish_description"],
-            "dish_featured"=>$_POST["dish_featured"],
 
-           // "destination_lname_tr"=>$_POST["d estination_lname_tr"],
-           // "destination_sname_tr"=>$_POST["destination_sname_tr"],
-           // "destination_description_tr"=>$_POST["destination_description_tr"],
+
+
+            "dish_name_jp"=>$_POST["dish_name_jp"],
+            "dish_description_jp"=>$_POST["dish_description_jp"],
+
+
+
+            "dish_featured"=>$_POST["dish_featured"],
             "dish_image"=>$img,
             "dish_price"=>$_POST["dish_price"]
         ],[
@@ -100,6 +106,13 @@
                 <label for="dish_name">Dish Name</label>
                 <input id="dish_name" class="textfield" name="dish_name" type="text" value= "<?php echo $item[0]["dish_name"]?>">
             </div>
+
+            <!-- JAPANESE -->
+            <div class="form-items">
+                <label for="dish_name">Dish Name (Japanese)</label>
+                <input id="dish_name_jp" class="textfield" name="dish_name_jp" type="text" value= "<?php echo $item[0]["dish_name_jp"]?>">
+            </div>
+            <!-- JAPANESE -->
 
 
        
@@ -159,6 +172,13 @@
                 <label for="dish_description">Dish Description</label>
                 <textarea id="dish_description" name="dish_description" id="" cols="30" rows="10"><?php echo $item[0]["dish_description"];?></textarea>
             </div>
+
+            <!-- JAPANESE -->
+            <div class="form-items">
+                <label for="dish_description_jp">Dish Description (Japanese)</label>
+                <textarea id="dish_description_jp" name="dish_description" id="" cols="30" rows="10"><?php echo $item[0]["dish_description_jp"];?></textarea>
+            </div>
+            <!-- JAPANESE -->
 
 
         
