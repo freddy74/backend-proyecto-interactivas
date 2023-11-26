@@ -50,25 +50,25 @@
         <div class="menu-cards">
             <div class="card">
                 <h2 class="text-card">Main Dishes</h2>
-                <a href="../hideyoshi/pages/categories_index.php">
+                <a href="../hideyoshi/pages/categories_index.php?category=main_dishes">
                     <img class="menu-img" src="../imgs/main-dishes-card.png" alt="main-dishes-card">
                 </a>
             </div>
             <div class="card">
                 <h2 class="text-card">Desserts</h2>
-                <a href="./pages/categories_index.html">
+                <a href="../hideyoshi/pages/categories_index.php?category=desserts">
                     <img class="menu-img" src="../imgs/desserts.png" alt="desserts">
                 </a>
             </div>
             <div class="card">
                 <h2 class="text-card">Appetizers</h2>
-                <a href="./pages/categories_index.html">
+                <a href="../hideyoshi/pages/categories_index.php?category=appetizers">
                     <img class="menu-img" src="../imgs/appetizers.png" alt="appetizers">
                 </a>
             </div>
             <div class="card">
                 <h2 class="text-card">Beverages</h2>
-                <a href="./pages/categories_index.html">
+                <a href="../hideyoshi/pages/categories_index.php?category=beverages">
                     <img class="menu-img" src="../imgs/beverages.png" alt="beverages">
                 </a>
             </div>

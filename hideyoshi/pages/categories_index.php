@@ -1,3 +1,30 @@
+<?php 
+    require_once '../../database.php';
+    $items = $database->select("tb_dishes","*");
+
+    $category_name = "";
+    $category_img = "";
+    $category_number = "";
+    if (isset($_GET['category'])) {
+        $category = $_GET['category'];
+        if ($category === "main_dishes") {
+            $category_name = "Main Dishes";
+            $category_number = "1";
+        }elseif ($category === "desserts") {
+            $category_name = "Desserts";
+            $category_number = "3";
+        }elseif ($category === "appetizers") {
+            $category_name = "Appetizers";
+            $category_number = "2";
+        }elseif ($category === "beverages") {
+            $category_name = "Beverages";
+            $category_number = "4";
+        }
+    }
+    echo $category;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,107 +53,35 @@
             <a class="go-next_button3" href="">Go Next</a>
         </div>
         <section>
-            <h1 class="main-dishes-title">Main Dishes</h1>
+            <?php 
+                echo "<h1 class='main-dishes-title'>".$category_name."</h1>"
+            ?>
             <h2 class="main-dishes-title-japanese">メインディッシュ</h2>
         </section>
     </header>
     <section class="cards_mainDishes-container">
-        <div class="card2">
-            <a href="./food_index2.php">
-                <img class="card2-img" src="../../imgs/card-teriyaki.png" alt="">
-            </a>
-            <h2 class="card2-h2">Teriyaki</h2>
-            <p class="card2-p">Soy sauce, mirin, sugar, sake, pork meat, vegetables, egg, cornstarch...</p>
-            <p class="price2">$10.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
+        <?php
+            
 
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/oden.png" alt="">
-            <h2 class="card2-h2">Oden</h2>
-            <p class="card2-p">Chopped vegetables, eggs, fried fish cakes, tofu puffs, soy sauce...</p>
-            <p class="price2">$12.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
+            foreach ($items as $item) {
+                if ($item["category_id"] == $category_number)  {
+                    echo "<div class='card2'>".
+                        "<a href='../pages/food_index2.php?id=".$item["dish_id"]."'>".
+                            "<img class='card2-img' src='../../imgs/".$item["dish_image"]."' alt=''>".
+                        "</a>".
+                        "<h2 class='card2-h2'>".$item["dish_name"]."</h2>".
+                        "<p class='card2-p'>".substr($item["dish_description"],0,85)."...</p>".
+                        "<p class='price2'>$".$item["dish_price"]."</p>".
+                        "<a  class='btn2' href='../pages/food_index2.php?id=".$item["dish_id"]."'>Add to car</a>".
+                        
+                    "</div>";
+                }
+            }
+        ?>
 
-        <div class="card2">
-            <a href="../food_index2.php"></a>
-            <img class="card2-img" src="../../imgs/gyoza.png" alt="">
-            <h2 class="card2-h2">Gyoza</h2>
-            <p class="card2-p">Chopped vegetables, eggs, fried fish cakes, tofu puffs, soy sauce...</p>
-            <p class="price2">$15.00</p>
-            <button  class="btn2">Add to cart</button>
-        </div>
 
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/sushi.png" alt="">
-            <h2 class="card2-h2">Sushi</h2>
-            <p class="card2-p">hopped vegetables, eggs, fried fish cakes, tofu puffs, soy sauce...</p>
-            <p class="price2">$20.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
-
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/card-teriyaki.png" alt="">
-            <h2 class="card2-h2">Teriyaki</h2>
-            <p class="card2-p">Soy sauce, mirin, sugar, sake, pork meat, vegetables, egg, cornstarch...</p>
-            <p class="price2">$10.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
-
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/oden.png" alt="">
-            <h2 class="card2-h2">Oden</h2>
-            <p class="card2-p">Chopped vegetables, eggs, fried fish cakes, tofu puffs, soy sauce...</p>
-            <p class="price2">$12.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/gyoza.png" alt="">
-            <h2 class="card2-h2">Gyoza</h2>
-            <p class="card2-p">Chopped vegetables, eggs, fried fish cakes, tofu puffs, soy sauce...</p>
-            <p class="price2">$15.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
-
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/sushi.png" alt="">
-            <h2 class="card2-h2">Sushi</h2>
-            <p class="card2-p">hopped vegetables, eggs, fried fish cakes, tofu puffs, soy sauce...</p>
-            <p class="price2">$20.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/card-teriyaki.png" alt="">
-            <h2 class="card2-h2">Teriyaki</h2>
-            <p class="card2-p">Soy sauce, mirin, sugar, sake, pork meat, vegetables, egg, cornstarch...</p>
-            <p class="price2">$10.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
-
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/oden.png" alt="">
-            <h2 class="card2-h2">Oden</h2>
-            <p class="card2-p">Chopped vegetables, eggs, fried fish cakes, tofu puffs, soy sauce...</p>
-            <p class="price2">$12.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/gyoza.png" alt="">
-            <h2 class="card2-h2">Gyoza</h2>
-            <p class="card2-p">Chopped vegetables, eggs, fried fish cakes, tofu puffs, soy sauce...</p>
-            <p class="price2">$15.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
-
-        <div class="card2">
-            <img class="card2-img" src="../../imgs/sushi.png" alt="">
-            <h2 class="card2-h2">Sushi</h2>
-            <p class="card2-p">hopped vegetables, eggs, fried fish cakes, tofu puffs, soy sauce...</p>
-            <p class="price2">$20.00</p>
-            <button class="btn2">Add to cart</button>
-        </div>
-        </div>
+        
+        
     </section>
 </body>
 

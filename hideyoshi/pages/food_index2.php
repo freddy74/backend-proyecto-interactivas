@@ -1,3 +1,31 @@
+<?php 
+    require_once '../../database.php';
+
+    if (isset($_GET)) {
+        $item = $database->select("tb_dishes",[
+            "[>]tb_people_categories"=>["people_category_id" => "people_category_id"],
+            "[>]tb_categories"=>["category_id" => "category_id"]
+        ],[
+            "tb_dishes.dish_id", 
+            "tb_dishes.dish_name", 
+            "tb_dishes.dish_image",
+            "tb_dishes.dish_name_jp",
+            "tb_dishes.dish_featured",
+            "tb_dishes.dish_description",
+            "tb_dishes.dish_description_jp",
+            "tb_dishes.dish_price",
+
+            "tb_people_categories.people_category_id",
+            "tb_people_categories.people_category_name",
+            "tb_categories.category_id",
+            "tb_categories.category_name",
+        ],[
+            "dish_id"=>$_GET["id"]
+        ]);
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -68,15 +96,14 @@
             /*Grid*/
             /*Text*/
             .dish-name {
-                font-size: 5rem; 
+                font-size: 2rem; 
                 font-weight: bold;
-                /* margin-bottom: 4rem; */
-                font-family:var(--ff-secondary);
+                font-family:'Roboto Condensed', sans-serif;
             }
 
             .dish-category-signatured{
                 font-family: var(--ff-main);
-                font-size: var(--fs-xs);
+                font-size: var(--fs-xs2);
                 text-decoration:none;
                 color: var(--clr-black);
                 font-weight:bold;
@@ -85,15 +112,16 @@
             .dish-description {
                 color: black;
                 margin-bottom: 1.875rem;
-                font-size: 1.75rem;
+                font-size: var(--fs-xxs);
             }  
             .dish-price{
                 font-family: var(--ff-main);
-                font-size: var(--fs-l);
+                font-size: 2.1rem;
                 text-decoration:none;
-                color: var(--clr-black);
+                color: green;
                 font-weight:bold;
-                margin-bottom: 1rem
+                margin-bottom: 2rem
+               
             }
             /*Text*/
             /*Components*/
@@ -108,11 +136,10 @@
                 color: #fff;
                 border: none;
                 padding: 0.9rem 3rem;
-                font-size: 1.2rem; 
                 cursor: pointer;
                 transition: background-color 0.3s;
                 font-family:var(--ff-main);
-                font-size:var(--fs-xxs);
+                font-size:1rem;
                 font-weight:bold;
                 border-radius: 2rem;
             }
@@ -121,11 +148,10 @@
                 color: #fff;
                 border: none;
                 padding: 0.9rem 3rem;
-                font-size: 1.2rem; 
                 cursor: pointer;
                 transition: background-color 0.3s;
                 font-family:var(--ff-main);
-                font-size:var(--fs-xs);
+                font-size:var(--fs-xxs);
                 font-weight:bold;
                 border-radius: 2rem;
             }
@@ -140,7 +166,7 @@
             }
             .top-nav {
                 display: flex;
-                gap: 6rem;
+                gap: 3rem;
                 align-items: center;
                 justify-content: center;
                 padding-top: 2rem;
@@ -148,10 +174,9 @@
             }
             .nav-list {
                 font-family: 'Roboto', sans-serif;
-                font-size: var(--fs-xxs);
+                font-size: 1rem;
                 font-weight: var(--fw-regular);
-                font-size: 18px;
-
+                
                 list-style-type: none;
                 text-decoration: none;
                 gap: 5rem;
@@ -201,7 +226,7 @@
             /*Nav*/
 
         
-</style>
+    </style>
 
 
 </head>
@@ -211,29 +236,34 @@
         include "../parts/nav-cart.php";
     ?>
 
+
     <div class="details-container">
-        <div class="container">
-            <div class="image-container" >
-                <img class="dish-image" src="../../imgs/gyoza.png" alt="Imagen del Platillo">
-            </div>
-            
-            <div class="info-container">
-                <div class="dish-details">
-                    <div class="dish-name">Gyoza</div>
-                    <p class="dish-price">$19.99</p>
-
-
-                    <div class="dish-categories">
-                        <a class="dish-category-signatured" href='#'>Signatured Dish</a>
-                        <a class="dish-category-signatured" href='#'>Category</a>
-                    </div>
-                    <div class="dish-description">Lorem ipsum dolor sit amet. Non nesciunt eius ut quos sequi et ipsa accusamus in nihil saepe non possimus ullam. Aut praesentium asperiores ea modi minima est consequatur voluptates a esse facilis sit molestias Quis sit eaque repellat.  </div>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
+        <?php 
+            echo "<div class='container'>".
+                "<div class='image-container'>".
+                    "<img class='dish-image' src='../../imgs/".$item[0]["dish_image"]."' alt='Imagen del Platillo'>".
+                "</div>".
                 
-            </div>
-        </div>
-        
+                "<div class='info-container'>".
+                    "<div class='dish-details'>".
+                        "<div class='dish-name'>".$item[0]["dish_name"]."</div>".
+                        "<p class='dish-price'>$".$item[0]["dish_price"]."</p>".
+    
+    
+                        "<div class='dish-categories'>";
+
+                            if ($item[0]["dish_featured"] === "y") {
+                                echo "<a class='dish-category-signatured' href='#'>Signatured Dish</a>";
+                            }
+
+                            echo "<a class='dish-category-signatured' href='#'>".$item[0]["category_name"]."</a>".
+                        "</div>".
+                        "<div class='dish-description'>".$item[0]["dish_description"]."</div>".
+                        "<button class='add-to-cart'>Add to Cart</button>".
+                    "</div>".
+                "</div>".
+            "</div>";
+        ?>
     </div>
 
     

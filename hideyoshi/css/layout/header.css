@@ -9,8 +9,6 @@
     color: var(--clr-white);
     width: 100%;
     background-color: var(--clr-gray);
-    border-bottom-right-radius: 10rem;
-    border-bottom-left-radius: 10rem;
     margin-bottom: 5rem;
 }
 
@@ -45,8 +43,6 @@
     background: url(../../../imgs/main-dishes_hero.png) no-repeat 50% 50%;
     background-size: cover;
     top: 0;
-    border-bottom-left-radius: 10rem;
-    border-bottom-right-radius: 10rem;
     background-color: var(--clr-gray);
     margin-bottom: 5rem;
 }

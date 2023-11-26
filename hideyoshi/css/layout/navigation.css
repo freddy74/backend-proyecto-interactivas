@@ -9,9 +9,9 @@
 
 .nav-list {
     font-family: var(--ff-secondary);
-    font-size: var(--fs-xxs);
+    font-size: var(--fs-xs);
     font-weight: var(--fw-regular);
-    font-size: 18px;
+    
 
     list-style-type: none;
     text-decoration: none;
