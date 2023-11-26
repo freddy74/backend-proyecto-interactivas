@@ -14,10 +14,15 @@
             /*display: flex;
             align-items: center;
             justify-content: center;*/
-            /*background: url(../../imgs/wood_background.png);*/
+            background: url(../../imgs/background_dishes.png);
             background-repeat: no-repeat;
             background-size: cover;
             background-color: black;
+        }
+
+
+        .info-container{
+            text-align:right;
         }
 
         .dish-image {
@@ -29,13 +34,13 @@
 
         .dish-details {
             padding: 1.875rem; 
-            text-align: center;
+            text-align: right;
         }
 
         .dish-name {
             font-size: 5rem; 
             font-weight: bold;
-            margin-bottom: 4rem;
+            /* margin-bottom: 4rem; */
             font-family:var(--ff-secondary);
 
         }
@@ -46,8 +51,7 @@
             text-decoration:none;
             color: var(--clr-black);
             font-weight:bold;
-           
-    
+
         }
 
 
@@ -57,18 +61,40 @@
             font-size: 1.75rem;
         }
 
-        .add-to-cart {
-            background-color: #4caf50;
+        .nav-cart-button{
+            background-color: var(--clr-orange);
             color: #fff;
             border: none;
-            padding: 0.9375rem 1.875rem;
+            padding: 0.9rem 3rem;
             font-size: 1.2rem; 
             cursor: pointer;
             transition: background-color 0.3s;
+            font-family:var(--ff-main);
+            font-size:var(--fs-xxs);
+            font-weight:bold;
+            border-radius: 2rem;
+        }
+
+        .nav-cart-button:hover {
+            background-color: #F42B00;
+        }
+
+        .add-to-cart {
+            background-color: var(--clr-orange);
+            color: #fff;
+            border: none;
+            padding: 0.9rem 3rem;
+            font-size: 1.2rem; 
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family:var(--ff-main);
+            font-size:var(--fs-xs);
+            font-weight:bold;
+            border-radius: 2rem;
         }
 
         .add-to-cart:hover {
-            background-color: #45a090;
+            background-color: #F42B00;
         }
 
 
@@ -90,11 +116,15 @@
 
             list-style-type: none;
             text-decoration: none;
-            gap: 8rem;
+            gap: 5rem;
             transition: transform 0.2s ease-in-out;
 
             align-items: center;
             display: flex;
+        }
+
+        .nav:hover{
+            transform: scale(2); 
         }
 
 
@@ -143,6 +173,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+           |
         }
 
 
@@ -165,6 +196,7 @@
             align-items: center;
             padding: 3rem;
             border-radius: 2rem;
+            margin-top: 7;
         }
 
         .dish-categories{
@@ -177,30 +209,24 @@
             text-align:right;
             margin-bottom:2rem;
         }
-
+        .dish-price{
+            font-family: var(--ff-main);
+            font-size: var(--fs-l);
+            text-decoration:none;
+            color: var(--clr-black);
+            font-weight:bold;
+            margin-bottom: 1rem
+        }
         
 </style>
 
 
-
-
 </head>
 <body>
-    <header>
-        
-        <nav class="top-nav">
-            <ul class="nav-list">
-            
-            
-                <li><a class="nav-list-link" href="./categories_index.php">Go Back</a></li>
-                <li><a class="nav-list-link" href="../index.php">Home</a></li>
-                <!-- <li><a class="nav-list-link" href="#">Locations</a></li> -->
-                <li><img class="logo" src="../../imgs/Hideyoshi.png" alt="logo"></li>
-                <li><a class="nav-list-link" href="#">Cart</a></li>
-                <button>Translate</button>
-            </ul>
-        </nav>
-    </header>
+
+    <?php
+        include "../parts/nav-cart.php";
+    ?>
 
     <div class="details-container">
         <div class="container">
@@ -209,25 +235,25 @@
             </div>
             
             <div class="info-container">
-            <div class="dish-details">
-                <div class="dish-name">Gyoza</div>
-                <div class="dish-categories">
-                    <a class="dish-category-signatured" href='#'>Signatured Dish</a>
-                    <a class="dish-category-signatured" href='#'>Category</a>
-            
-            
+                <div class="dish-details">
+                    <div class="dish-name">Gyoza</div>
+                    <p class="dish-price">$19.99</p>
+
+
+                    <div class="dish-categories">
+                        <a class="dish-category-signatured" href='#'>Signatured Dish</a>
+                        <a class="dish-category-signatured" href='#'>Category</a>
+                    </div>
+                    <div class="dish-description">Lorem ipsum dolor sit amet. Non nesciunt eius ut quos sequi et ipsa accusamus in nihil saepe non possimus ullam. Aut praesentium asperiores ea modi minima est consequatur voluptates a esse facilis sit molestias Quis sit eaque repellat.  </div>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="dish-description">Lorem ipsum dolor sit amet. Non nesciunt eius ut quos sequi et ipsa accusamus in nihil saepe non possimus ullam. Aut praesentium asperiores ea modi minima est consequatur voluptates a esse facilis sit molestias Quis sit eaque repellat. Sed voluptas quisquam ut quos deleniti ut beatae sint ut dolore voluptas et temporibus omnis eos distinctio illo ut aliquam sint? </div>
-            </div>
-
-
-            
-
+                
             </div>
         </div>
+        
     </div>
 
-
+    
 
 
 
