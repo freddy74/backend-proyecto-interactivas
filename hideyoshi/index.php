@@ -24,11 +24,11 @@
             </label>
             <ul class="nav-list">
                 <li><a class="nav-list-link" href="./index.php">Home</a></li>
-                <li><a class="nav-list-link" href="#">Locations</a></li>
+                <li><a class="nav-list-link" href="#">Cart</a></li>
             </ul>
             <img class="logo" src="../imgs/Hideyoshi.png" alt="logo">
             <ul class="responsive-top nav-list">
-                <li><a class="nav-list-link" href="#">Deliver</a></li>
+                <li><a class="nav-list-link" href="#">Login</a></li>
                 <li><a class="nav-list-link" href="#">About</a></li>
             </ul>
         </nav>

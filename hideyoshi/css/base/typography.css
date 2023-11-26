@@ -56,7 +56,7 @@
     font-size: var(--fs-xs);
     font-family: var(--ff-secondary);
     color: var(--clr-white);
-    font-weight: var(--fw-light);
+    font-weight: var(--fw-bold);
 }
 
 .selected-title {

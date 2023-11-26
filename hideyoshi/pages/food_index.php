@@ -24,6 +24,7 @@
         <div>
             <a class="go-back_button" href="../categories_index.html">Go Back</a>
         </div>
+        
         <div class="header-container-food">
             <section class="hero-text-container">
                 <h1 class="food-title">Teriyaki</h1>
