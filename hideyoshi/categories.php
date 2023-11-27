@@ -1,5 +1,6 @@
 <?php 
-    require_once '../../database.php';
+
+    require_once '../database.php';
     $items = $database->select("tb_dishes","*");
 
     $category_name = "";
@@ -32,24 +33,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body class="body2">
     <header class="hero-container3">
         <nav class="top-nav3">
             <ul class="nav-list">
-                <li><a class="nav-list-link" href="../index.php">Home</a></li>
+                <li><a class="nav-list-link" href="./index.php">Home</a></li>
                 <li><a class="nav-list-link" href="#">Cart</a></li>
             </ul>
-            <img class="logo" src="../../imgs/Hideyoshi.png" alt="logo">
+            <img class="logo" src="./imgs/Hideyoshi.png" alt="logo">
             <ul class="nav-list3">
                 <li><a class="nav-list-link3" href="#">Deliver</a></li>
                 <li><a class="nav-list-link3" href="#">About</a></li>
             </ul>
         </nav>
         <div class="buttons-container">
-            <a class="go-back_button3" href="../index.php">Go Back</a>
+            <a class="go-back_button3" href="./index.php">Go Back</a>
             <a class="go-next_button3" href="">Go Next</a>
         </div>
         <section>
@@ -61,27 +62,20 @@
     </header>
     <section class="cards_mainDishes-container">
         <?php
-            
-
             foreach ($items as $item) {
                 if ($item["category_id"] == $category_number)  {
                     echo "<div class='card2'>".
-                        "<a href='../pages/food_index2.php?id=".$item["dish_id"]."'>".
-                            "<img class='card2-img' src='../../imgs/".$item["dish_image"]."' alt=''>".
+                        "<a href='./details.php?id=".$item["dish_id"]."'>".
+                            "<img class='card2-img' src='./imgs/".$item["dish_image"]."' alt=''>".
                         "</a>".
                         "<h2 class='card2-h2'>".$item["dish_name"]."</h2>".
                         "<p class='card2-p'>".substr($item["dish_description"],0,85)."...</p>".
                         "<p class='price2'>$".$item["dish_price"]."</p>".
-                        "<a  class='btn2' href='../pages/food_index2.php?id=".$item["dish_id"]."'>Add to car</a>".
-                        
+                        "<a  class='btn2' href='./details.php?id=".$item["dish_id"]."'>Add to car</a>".
                     "</div>";
                 }
             }
         ?>
-
-
-        
-        
     </section>
 </body>
 

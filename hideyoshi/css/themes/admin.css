@@ -2,11 +2,16 @@
     font-family: var(--ff-main);
 }
 
-.container {
+.admin-container {
     display: grid;
     width: 100vw;
     font-family: var(--ff-main);
-    justify-items: center;
+    background: white;
+    width: 80%;
+    margin: auto;
+    padding-top: 3rem;
+    border-bottom: solid;
+    text-align: center;
 }
 
 label {

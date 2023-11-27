@@ -24,9 +24,9 @@
             </label>
             <ul class="nav-list">
                 <li><a class="nav-list-link" href="./index.php">Home</a></li>
-                <li><a class="nav-list-link" href="#">Cart</a></li>
+                <li><a class="nav-list-link" href="./cart.php">Cart</a></li>
             </ul>
-            <img class="logo" src="../imgs/Hideyoshi.png" alt="logo">
+            <img class="logo" src="./imgs/Hideyoshi.png" alt="logo">
             <ul class="responsive-top nav-list">
                 <li><a class="nav-list-link" href="#">Login</a></li>
                 <li><a class="nav-list-link" href="#">About</a></li>
@@ -50,26 +50,26 @@
         <div class="menu-cards">
             <div class="card">
                 <h2 class="text-card">Main Dishes</h2>
-                <a href="../hideyoshi/pages/categories_index.php?category=main_dishes">
-                    <img class="menu-img" src="../imgs/main-dishes-card.png" alt="main-dishes-card">
+                <a href="./categories.php?category=main_dishes">
+                    <img class="menu-img" src="./imgs/main-dishes-card.png" alt="main-dishes-card">
                 </a>
             </div>
             <div class="card">
                 <h2 class="text-card">Desserts</h2>
-                <a href="../hideyoshi/pages/categories_index.php?category=desserts">
-                    <img class="menu-img" src="../imgs/desserts.png" alt="desserts">
+                <a href="./categories.php?category=desserts">
+                    <img class="menu-img" src="./imgs/desserts.png" alt="desserts">
                 </a>
             </div>
             <div class="card">
                 <h2 class="text-card">Appetizers</h2>
-                <a href="../hideyoshi/pages/categories_index.php?category=appetizers">
-                    <img class="menu-img" src="../imgs/appetizers.png" alt="appetizers">
+                <a href="./categories.php?category=appetizers">
+                    <img class="menu-img" src="./imgs/appetizers.png" alt="appetizers">
                 </a>
             </div>
             <div class="card">
                 <h2 class="text-card">Beverages</h2>
-                <a href="../hideyoshi/pages/categories_index.php?category=beverages">
-                    <img class="menu-img" src="../imgs/beverages.png" alt="beverages">
+                <a href="./categories.php?category=beverages">
+                    <img class="menu-img" src="./imgs/beverages.png" alt="beverages">
                 </a>
             </div>
         </div>
@@ -86,7 +86,7 @@
                     <div class="swiper-wrapper">
                         <!-- Slides -->
                         <div class="swiper-slide">
-                            <img class="slider-img" src="../imgs/gyoza.png" alt="gyoza">
+                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
                             <div class="popular-card-text">
                                 <p class="card2-h2">Gyoza</p>
                                 <p class="price2">$10.99</p>
@@ -96,7 +96,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img class="slider-img" src="../imgs/gyoza.png" alt="gyoza">
+                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
                             <div class="popular-card-text">
                                 <p class="card2-h2">Gyoza</p>
                                 <p class="price2">$10.99</p>
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img class="slider-img" src="../imgs/gyoza.png" alt="gyoza">
+                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
                             <div class="popular-card-text">
                                 <p class="card2-h2">Gyoza</p>
                                 <p class="price2">$10.99</p>
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img class="slider-img" src="../imgs/gyoza.png" alt="gyoza">
+                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
                             <div class="popular-card-text">
                                 <p class="card2-h2">Gyoza</p>
                                 <p class="price2">$10.99</p>
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img class="slider-img" src="../imgs/gyoza.png" alt="gyoza">
+                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
                             <div class="popular-card-text">
                                 <p class="card2-h2">Gyoza</p>
                                 <p class="price2">$10.99</p>
@@ -159,29 +159,13 @@
             </section>
         </div>
     </section>
-    <footer class="footer-container">
-        <div class="footer-content">
-            <div class="social-icons">
-                <img src="../imgs/instagram-icon-original.svg" alt="instagram-logo">
-                <img src="../imgs/instagram-icon-original.svg" alt="instagram-logo">
-                <img src="../imgs/instagram-icon-original.svg" alt="instagram-logo">
-                <img src="../imgs/instagram-icon-original.svg" alt="instagram-logo">
-            </div>
-            <div class="footer-links">
-                <section>
-                    <h3>Get to Know Us</h3>
-                    <ul class="nav-bottom-list">
-                        <li><a class="footer-link-text" href="#">About Us</a></li>
-                        <li><a class="footer-link-text" href="#">About Us</a></li>
-                        <li><a class="footer-link-text" href="#">About Us</a></li>
-                        <li><a class="footer-link-text" href="#">About Us</a></li>
-                    </ul>
-                </section>
-            </div>
-        </div>
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
+
+<?php
+include "./parts/footer.php";
+
+?>
 
 </html>

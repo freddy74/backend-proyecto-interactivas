@@ -1,5 +1,5 @@
 .hero-container {
-    background: url(../../../imgs/background-hero.png);
+    background: url(../../imgs/background-hero.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,6 +10,8 @@
     width: 100%;
     background-color: var(--clr-gray);
     margin-bottom: 5rem;
+    border-radius: 0 0 5rem 5rem;
+    
 }
 
 .hero-container2 {
@@ -40,7 +42,7 @@
 .hero-container3 {
     width: 100vw;
     height: 30rem;
-    background: url(../../../imgs/main-dishes_hero.png) no-repeat 50% 50%;
+    background: url(../../imgs/main-dishes_hero.png) no-repeat 50% 50%;
     background-size: cover;
     top: 0;
     background-color: var(--clr-gray);

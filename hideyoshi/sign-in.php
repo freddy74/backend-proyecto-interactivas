@@ -34,7 +34,7 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 
     <style>
         body {
@@ -46,7 +46,7 @@ if ($_POST) {
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: url(../../imgs/signin_background.png);
+            background: url(./imgs/signin_background.png);
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;

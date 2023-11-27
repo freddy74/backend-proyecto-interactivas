@@ -14,7 +14,7 @@
     <style>
         body {
             /* background: url(../imgs/background-hero.png); */
-            background: url(../../imgs/login_background.png);
+            background: url(./imgs/login_background.png);
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -95,104 +95,6 @@
             text-decoration: none;
         }
 
-        /* .box-container {
-            width: 100%;
-            max-width: 800px;
-            margin: auto;
-            position: relative;
-        }
-
-        .back-box {
-            width: 100%;
-            padding: 10px 20px;
-            display: flex;
-            background: var(--clr-yellow);
-            backdrop-filter: blur(20px);
-        }
-
-        .back-box div {
-            margin: 100px 40px;
-            color: white;
-        }
-
-        .back-box p,
-        .back-box button {
-            margin-top: 30px;
-        }
-
-        .back-box h3 {
-            font-weight: 400;
-            font-size: 26px;
-        }
-
-        .back-box button {
-            border: solid;
-            color: var(--clr-yellow);
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 80%;
-            background-color: #000000;
-        }
-
-        .login-register-container {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            max-width: 380px;
-            position: relative;
-            top: -185px;
-            left: 0px;
-        }
-
-        .login-register-container form {
-            width: 100%;
-            padding: 80px 20px;
-            background: var(--clr-white);
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .login-register-container form h2 {
-            font-size: 30px;
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--clr-black);
-        }
-
-        .login-register-container form input {
-            width: 100%;
-            margin-top: 20px;
-            padding: 10px;
-            border: none;
-            outline: none;
-            background: #F2F2F2;
-        }
-
-        .login-register-container form button {
-            padding: 10px 40px;
-            margin-top: 40px;
-            border: none;
-            outline: none;
-            font-size: var(--fs-xxs);
-            cursor: pointer;
-        }
-
-        .register-form {
-            opacity: 1;
-            display: block;
-        }
-
-        .login-form {
-            display: none;
-        }
-
-        .main-login{
-            display: flex;
-            margin: auto;
-        } */
     </style>
 
 </head>
@@ -201,9 +103,9 @@
     <header>
         <nav class="top-nav">
             <ul class="nav-list">
-                <li><a class="nav-list-link" href="../index.html">Home</a></li>
+                <li><a class="nav-list-link" href="./index.html">Home</a></li>
                 <li><a class="nav-list-link" href="#">Locations</a></li>
-                <li><img class="logo" src="../../imgs/Hideyoshi.png" alt="logo"></li>
+                <li><img class="logo" src="./imgs/Hideyoshi.png" alt="logo"></li>
                 <li><a class="nav-list-link" href="#">Deliver</a></li>
                 <li><a class="nav-list-link" href="#">About</a></li>
             </ul>
