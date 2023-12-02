@@ -22,7 +22,7 @@
             $category_number = "4";
         }
     }
-    echo $category;
+    //echo $category;
 
 ?>
 
@@ -51,7 +51,6 @@
         </nav>
         <div class="buttons-container">
             <a class="go-back_button3" href="./index.php">Go Back</a>
-            <a class="go-next_button3" href="">Go Next</a>
         </div>
         <section>
             <?php 
@@ -71,7 +70,7 @@
                         "<h2 class='card2-h2'>".$item["dish_name"]."</h2>".
                         "<p class='card2-p'>".substr($item["dish_description"],0,85)."...</p>".
                         "<p class='price2'>$".$item["dish_price"]."</p>".
-                        "<a  class='btn2' href='./details.php?id=".$item["dish_id"]."'>Add to car</a>".
+                        "<a  class='btn2' href='./details.php?id=".$item["dish_id"]."'>Add to cart</a>".
                     "</div>";
                 }
             }

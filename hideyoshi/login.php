@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="<link rel=" preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="<link rel=" preconnect href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;900&display=swap"
         rel="stylesheet">
     <title>Log In</title>
+    <link rel="stylesheet" href="./css/main.css">
 
     <style>
         body {
@@ -61,7 +62,7 @@
             background-color: var(--clr-orange);
             font-weight: bold;
             color: var(--clr-white);
-            padding: 1rem;
+            padding: 1rem ;
             border: none;
             border-radius: 1rem;
             cursor: pointer;
@@ -103,7 +104,7 @@
     <header>
         <nav class="top-nav">
             <ul class="nav-list">
-                <li><a class="nav-list-link" href="./index.html">Home</a></li>
+                <li><a class="nav-list-link" href="./index.php">Home</a></li>
                 <li><a class="nav-list-link" href="#">Locations</a></li>
                 <li><img class="logo" src="./imgs/Hideyoshi.png" alt="logo"></li>
                 <li><a class="nav-list-link" href="#">Deliver</a></li>
@@ -151,7 +152,7 @@
             <button class="login-btn" type="submit">Log In</button>
             <div class="sign-up-cta">
                 <h2>Not a member yet?</h2>
-                <a class="sign-up-link" href="sign-in.php">Create account!</a>
+                <a class="sign-up-link" href="./sign-in.php">Create account!</a>
             </div>
         </form>
     </main>

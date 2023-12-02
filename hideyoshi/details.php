@@ -43,10 +43,11 @@ if (isset($_GET)) {
             /*display: flex;
             align-items: center;
             justify-content: center;*/
-            background: url(../imgs/background_dishes.png);
+            background: url(./imgs/body-background.png);
             background-repeat: no-repeat;
             background-size: cover;
             background-color: black;
+            
         }
 
 
@@ -242,6 +243,12 @@ if (isset($_GET)) {
     </style>
 
 
+
+
+
+
+
+
 </head>
 
 <body>
@@ -255,7 +262,7 @@ if (isset($_GET)) {
             <?php
             echo "<div class='container'>" .
                 "<div class='image-container'>" .
-                "<img class='dish-image' src='../imgs/" . $item[0]["dish_image"] . "' alt='Imagen del Platillo'>" .
+                "<img class='dish-image' src='./imgs/" . $item[0]["dish_image"] . "' alt='Imagen del Platillo'>" .
                 "</div>" .
                 "<div class='info-container'>" .
                 "<div class='dish-details'>" .

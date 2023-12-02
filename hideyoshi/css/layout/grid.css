@@ -202,8 +202,9 @@
 }
 
 .card2-img {
-    max-width: 100%;
-    height: auto;
+    width: 20rem;
+    height: 20rem;
+    /*max-width: 100%;*/
     border-radius: 2rem;
 }
 

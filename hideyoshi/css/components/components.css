@@ -64,10 +64,11 @@
 
 .buttons-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 10%;
-    gap: 30rem;
-    margin: 1rem 10%;
+    grid-template-columns: 1fr;
+    height: 3%;
+    margin: 1rem 25%;
+    align-items: center;
+    align-content: center;
 }
 
 .go-back_button3 {

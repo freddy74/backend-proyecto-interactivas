@@ -1,5 +1,5 @@
 <?php
-require_once '../../database.php';
+require_once '../database.php';
 $message = "";
 
 if ($_POST) {
@@ -52,26 +52,29 @@ if ($_POST) {
             background-size: cover;
         }
 
+
+
+
         form {
             background-color: #fff;
-            padding: 2.5rem;
-            border-radius: 3rem;
+            padding: 2.5rem 2.5rem 2.5rem 2.5rem;
             box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
-            width: 25rem;
+            width: 100%;
             text-align: left;
-            transition: transform 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
+            border-radius: 2rem;
         }
 
-        form:hover {
-            transform: scale(1.05);
-        }
+        
 
-        h2 {
-            color: #E86A3C;
-            margin-bottom: 4rem;
+        .sign-in-title {
+            color: black;
+            margin-bottom: 2rem;
             text-align: center;
-            font-size: 2rem;
-            font-family: 'Roboto Condensed', sans-serif;
+            font-size: var(--fs-xl);
+            font-family: var(--ff-secondary);
+            margin-left: 10rem;
+            margin-right:10rem;
         }
 
         label {
@@ -79,28 +82,33 @@ if ($_POST) {
             margin: 0.938rem 0 0.063rem;
             color: #555;
             font-family: 'Roboto', sans-serif;
+            margin-bottom: .5rem;
         }
+
 
         .remember-label {
             text-align: center;
 
         }
 
-        input {
+        .form-elements {
             width: calc(100% - 0.75rem);
-            padding: 0.75rem;
+            padding: 1rem;
             box-sizing: border-box;
             border: 0.060rem solid #ccc;
             border-radius: 0.375rem;
             transition: border-color 0.3s ease-in-out;
+            background-color: hsla(64, 100%, 50%, 0.39);
+            
+            
         }
 
-        input:focus {
-            border-color: #E86A3C;
+        form-elements:focus {
+            border-color: #E86A3C;           
         }
 
         .button {
-            background-color: #E86A3C;
+            background-color: var(--clr-orange);
             color: #fff;
             padding: 0.938rem;
             border: none;
@@ -108,8 +116,11 @@ if ($_POST) {
             cursor: pointer;
             width: 100%;
             font-size: 1.125rem;
+            font-weight: bold;
             transition: background-color 0.3s ease-in-out;
             margin-top: 2rem;
+            border-radius: 2rem;
+            margin-bottom: 1rem;
         }
 
         .button:hover {
@@ -140,50 +151,84 @@ if ($_POST) {
             color: #c0392b;
 
         }
-    </style>
 
+
+        form-items::placeholder {
+            color: rgba(170, 170, 170, 0.7); 
+        }
+
+
+        .button-container{
+            align-content:center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .button-go-category{
+            font-family: var(--ff-main);
+            font-weight: bold;
+            font-size: var(--fs-xxs);
+            align-content:center;
+            background-color: var(--clr-orange);
+            padding: .5em;
+            border-radius: 2rem;
+            border: none;
+            color: white;
+            
+        }
+
+    </style>
 </head>
 
-<body>
 
+
+<body>
 
     <main>
         <section class='activity'>
             <form method="post" action="sign-in.php">
-                <h2>Good to see you here!</h2>
+                <h2 class= "sign-in-title">Sign In</h2>
                 <div>
+
+                
+
                     <label for='fullname'>Fullname</label>
                 </div>
                 <div>
-                    <input id='fullname' class='form-input' type='text' name='fullname'>
+                    <input class= "form-elements" id='fullname' class='form-input' type='text' name='Fullname' placeholder= "Name">
                 </div>
                 <div>
                     <label for='email'>Email Address</label>
                 </div>
                 <div>
-                    <input id='email' class='form-input' type='text' name='email'>
+                    <input class= "form-elements" id='email' class='form-input' type='text' name='email' placeholder= "Email">
                 </div>
                 <div>
                     <label for='username'>Username</label>
                 </div>
                 <div>
-                    <input id='username' class='form-input' type='text' name='username'>
+                    <input class= "form-elements" id='username' class='form-input' type='text' name='username' placeholder= "Username">
                 </div>
                 <div>
                     <label for='password'>Password</label>
                 </div>
                 <div>
-                    <input id='password' class='form-input' type='password' name='password'>
+                    <input  class= "form-elements"  id='password' class='form-input' type='password' name='password' placeholder= "Password">
                 </div>
                 <div>
-                    <input class="button" type='submit' value="REGISTER">
+                    <input  class="button" type='submit' value="REGISTER">
                 </div>
                 <p class="p">
                     <?php echo $message; ?>
                 </p>
-                <input type="hidden" name="register" value="1">
+                <input  class= "form-elements" type="hidden" name="register" value="1">
             </form>
         </section>
+
+        <div class= "button-container">
+            <a class= "button-go-category" href="./index.php">Continue Watching</a>
+        </div>
+
 </body>
 
 </html>

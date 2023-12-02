@@ -176,7 +176,7 @@
             <!-- JAPANESE -->
             <div class="form-items">
                 <label for="dish_description_jp">Dish Description (Japanese)</label>
-                <textarea id="dish_description_jp" name="dish_description" id="" cols="30" rows="10"><?php echo $item[0]["dish_description_jp"];?></textarea>
+                <textarea id="dish_description_jp" name="dish_description_jp" id="" cols="30" rows="10"><?php echo $item[0]["dish_description_jp"];?></textarea>
             </div>
             <!-- JAPANESE -->
 

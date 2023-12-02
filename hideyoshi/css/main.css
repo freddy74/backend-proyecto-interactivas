@@ -80,6 +80,7 @@
     .logo {
         width: 70%;
         display: flex;
+        margin-bottom: 2rem;
     }
 
 }

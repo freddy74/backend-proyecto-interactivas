@@ -28,7 +28,7 @@
             </ul>
             <img class="logo" src="./imgs/Hideyoshi.png" alt="logo">
             <ul class="responsive-top nav-list">
-                <li><a class="nav-list-link" href="#">Login</a></li>
+                <li><a class="nav-list-link" href="./login.php">Login</a></li>
                 <li><a class="nav-list-link" href="#">About</a></li>
             </ul>
         </nav>
