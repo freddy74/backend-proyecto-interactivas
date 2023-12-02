@@ -1,30 +1,74 @@
 <?php
-require_once '../database.php';
+    require_once '../database.php';
 
-if (isset($_GET)) {
-    $item = $database->select("tb_dishes", [
-        "[>]tb_people_categories" => ["people_category_id" => "people_category_id"],
-        "[>]tb_categories" => ["category_id" => "category_id"]
-    ], [
-        "tb_dishes.dish_id",
-        "tb_dishes.dish_name",
-        "tb_dishes.dish_image",
-        "tb_dishes.dish_name_jp",
-        "tb_dishes.dish_featured",
-        "tb_dishes.dish_description",
-        "tb_dishes.dish_description_jp",
-        "tb_dishes.dish_price",
+    $link = "";
+    $url_params="";
+    $lang="";
 
-        "tb_people_categories.people_category_id",
-        "tb_people_categories.people_category_name",
-        "tb_categories.category_id",
-        "tb_categories.category_name",
-    ], [
-        "dish_id" => $_GET["id"]
-    ]);
-}
+    if($_GET){
+       if(isset($_GET["lang"]) && $_GET["lang"]=="jp"){
+        $item = $database->select("tb_dishes",[ //La tabla base hace un inner join con los estados en donde el campo de id de estado (en destinations) sea igual al campo de estados en la tabla estados.
+            "[>]tb_people_categories"=>["people_category_id" => "people_category_id"],
+            "[>]tb_categories"=>["category_id" => "category_id"]
+        ],[
+            "tb_dishes.dish_id",
+            "tb_dishes.dish_name_jp",
+            "tb_dishes.dish_description_jp",
+            "tb_dishes.dish_image",
+            "tb_dishes.destination_price",
+            "tb_people_categories.people_category_name",
+            "tb_people_categories.people_category_description",
+            "tb_categories.category_name",
+            "tb_categories.category_description",
+        ],[
+            "dish_id"=>$_GET["id"] //Where: id_destinations sea igual al que nos entró por parámetro
+        ]);
+        $item[0]["dish_name"]=$item[0]["dish_name_jp"];
+        $item[0]["dish_description"]= $item[0]["dish_description_jp"];
+
+
+        $url_params= "id=".$item[0]["dish_id"];
+        $lang= "EN";
+
+
+       }else{
+        $item = $database->select("tb_dish",[ //La tabla base hace un inner join con los estados en donde el campo de id de estado (en destinations) sea igual al campo de estados en la tabla estados.
+            "[>]tb_people_categories"=>["people_category_id" => "people_category_id"],
+            "[>]tb_categories"=>["category_id" => "category_id"]
+        ],[
+            "tb_dishes.dish_id",
+            "tb_dishes.dish_name",
+            "tb_dishes.dish_description",
+            "tb_dishes.dish_image",
+            "tb_dishes.destination_price",
+            "tb_people_categories.people_category_name",
+            "tb_people_categories.people_category_description",
+            "tb_categories.category_name",
+            "tb_categories.category_description",
+        ],[
+            "dish_id"=>$_GET["id"] //Where: id_destinations sea igual al que nos entró por parámetro
+        ]);
+
+        $url_params= "id=".$item[0]["dish_id"]."&lang=jp";
+        $lang= "JP";
+       }
+    }
+
+
+/*
+        if(isset($_SESSION['isLoggedIn'])){ //¿hay sesión iniciada y dentro de esta se encuentra difinida la variable "isLoggedIn"?
+            $link = "book.php?id=".$item[0]['id_destination']."";
+        }else{
+            $link = './forms.php';
+        }
+    
+        // Reference: https://medoo.in/api/select
+        $tours = $database->select("tb_destination_activities","*");
+    }
+
+    */
+
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -282,6 +326,75 @@ if (isset($_GET)) {
             ?>
         </div>
     </form>
+
+
+
+
+
+    <script>
+
+let requestLang = "JP";
+
+function switchLang(){
+    if(requestLang == "EN") requestLang = "JP";
+    else requestLang = "EN";
+    document.getElementById("lang").innerText = requestLang;
+}
+
+function getTranslation(id){
+    console.log(id);
+    
+
+    let info = {
+        dish_id: id,
+        language: requestLang
+    };
+
+    //fetch
+    fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/language.php",{
+
+        method: "POST",
+        mode: "same-origin",
+        credentials: "same-origin",
+        headers:{
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        //esta función codifica a json
+        body: JSON.stringify(info)
+    })
+    //se envían los datos a la BD
+    .then(response => response.json())
+    .then(data => {
+        //console.log(data.name);
+       // console.log(data.description);
+       switchLang();
+       document.getElementById("dish-name").innerText=data.name;
+       document.getElementById("dish-description").innerText=data.description;
+    })
+    .catch(err => console.log("error: " + err));
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 
