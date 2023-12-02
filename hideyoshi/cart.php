@@ -1,9 +1,42 @@
 <?php
 require_once '../database.php';
 
-if ($_POST) {
-    var_dump($_POST);
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn-cart'])) {
+    $dishName = $_POST['dish-name'];
+    $dishPrice = $_POST['dish-price'];
+    $dishImage = $_POST['dish-image'];
+    $quantity = $_POST['quantity'];
+   
+    $cart = json_decode($_COOKIE['cart'], true);
+    // isset($_COOKIE['cart']) ? --- : array()
+
+
+    // Verificar si el platillo ya está en el carrito
+    $found = false;
+    foreach ($cart as $key => $cartItem) {
+        if ($cartItem['dishName'] == $dishName) {
+            // Si ya existe, incrementar la cantidad y salir del bucle
+            $cart[$key]['quantity'] += $quantity;
+            $found = true;
+            break;
+        }
+    }
+
+    // Si no se encontró el platillo en el carrito, agregar uno nuevo
+    if (!$found) {
+        $cartItem = array(
+            'dishName' => $dishName,
+            'dishPrice' => $dishPrice,
+            'dishImage' => $dishImage,
+            'quantity' => $quantity
+        );
+        $cart[] = $cartItem;
+    }
+
+    setcookie('cart', json_encode($cart), time() + (3600));
+    header('Location: cart.php');
 }
+
 
 ?>
 
@@ -48,7 +81,6 @@ if ($_POST) {
 </header>
 
 <body>
-
     <div class="admin-container">
         <table>
             <tr>
@@ -58,8 +90,30 @@ if ($_POST) {
                 <td>Delete</td>
                 <td>Price</td>
             </tr>
+            <?php
+            if (isset($_COOKIE['cart'])) {
+                // Obtener el contenido de la cookie y convertirlo a un array
+                $cartItems = json_decode($_COOKIE['cart'], true);
+
+                var_dump($cartItems);
+                // Iterar sobre los platillos en el carrito
+                foreach ($cartItems as $cartItem) {
+                    echo '<tr>';
+                    echo '<td><img class="cart-image" src="./imgs/' . $cartItem['dishImage'] . '" alt="Dish Image"></td>';
+                    echo '<td>' . $cartItem['dishName'] . '</td>';
+                    echo '<td>' . $cartItem['quantity'] . '</td>';
+                    echo '<td><a href="remove_from_cart.php?dishName=' . urlencode($cartItem['dishName']) . '">Delete</a></td>';
+                    echo '<td>$' . $cartItem['dishPrice'] * $cartItem['quantity'] . '</td>';
+                    echo '</tr>';
+                }
+            } else {
+                echo '<tr><td colspan="5">No items in the cart</td></tr>';
+            }
+
+            ?>
         </table>
     </div>
+
 
 
     <div>
@@ -68,8 +122,5 @@ if ($_POST) {
                 ?> -->
 
     </div>
-
-    <?php
-    ?>
 
 </body>

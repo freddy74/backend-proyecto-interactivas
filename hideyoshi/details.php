@@ -23,8 +23,8 @@ if (isset($_GET)) {
         "dish_id" => $_GET["id"]
     ]);
 }
-?>
 
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -243,12 +243,6 @@ if (isset($_GET)) {
     </style>
 
 
-
-
-
-
-
-
 </head>
 
 <body>
@@ -278,44 +272,19 @@ if (isset($_GET)) {
             echo "<a class='dish-category-signatured' href='#'>" . $item[0]["category_name"] . "</a>" .
                 "</div>" .
                 "<div class='dish-description'>" . $item[0]["dish_description"] . "</div>" .
+
+                "<input name='quantity' type='number'  class='add-to-cart' value='1' min='1'>" .
                 "<input name='btn-cart' type='submit' class='add-to-cart' value='Add to Cart'>" .
+
                 "<input name='dish-name' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
-                "<input name='dish-' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
-                "<input name='dish-name' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
-                "<input name='dish-name' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
+                "<input name='dish-price' type='hidden' value='" . $item[0]["dish_price"] . "'>" .
+                "<input name='dish-image' type='hidden' value='" . $item[0]["dish_image"] . "'>" .
                 "</div>" .
                 "</div>" .
                 "</div>";
             ?>
         </div>
     </form>
-
-
-    <!-- <div class="details-container">
-        <div class="container">
-            <img class="dish-image" src="../../imgs/gyoza.png" alt="Imagen del Platillo">
-            <div class="dish-details">
-                <div class="dish-name">Gyoza</div>
-                <div class="dish-description">Lorem ipsum dolor sit amet. Non nesciunt eius ut quos sequi et ipsa accusamus in nihil saepe non possimus ullam. Aut praesentium asperiores ea modi minima est consequatur voluptates a esse facilis sit molestias Quis sit eaque repellat. Sed voluptas quisquam ut quos deleniti ut beatae sint ut dolore voluptas et temporibus omnis eos distinctio illo ut aliquam sint? </div>
-            </div>
-            <section class="order-container">
-                <div>
-                    <h2>Amount:</h2>
-                    <input type="number">
-                </div>
-
-                <div>
-                    <h2>Signatured dish:</h2>
-                
-                </div>
-            </section>
-            <div>
-            <button class="add-to-cart" onclick="">Add to cart</button>
-            </div>
-
-        </div>
-    </div> -->
-
 
 </body>
 
