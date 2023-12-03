@@ -13,7 +13,7 @@
 
             $response = "server response";
 
-            if($decoded['language']=='en'){
+            if($decoded['language']=='EN'){
 
                 $item = $database->select("tb_dishes", [
                     "tb_dishes.dish_name",

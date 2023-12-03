@@ -1,6 +1,6 @@
 .top-nav {
     display: flex;
-    gap: 6rem;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     padding-top: 2rem;
@@ -9,15 +9,12 @@
 
 .nav-list {
     font-family: var(--ff-secondary);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-xxs);
     font-weight: var(--fw-regular);
-    
-
     list-style-type: none;
     text-decoration: none;
-    gap: 8rem;
+    gap: 4rem;
     transition: transform 0.2s ease-in-out;
-
     align-items: center;
     display: flex;
 }
@@ -25,7 +22,6 @@
 .nav-list-link {
     text-decoration: none;
     color: rgb(255, 255, 255);
-    
     font-weight: var(--fw-bold);
 }
 

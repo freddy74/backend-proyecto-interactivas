@@ -6,7 +6,7 @@
     $lang="";
 
     if($_GET){
-       if(isset($_GET["lang"]) && $_GET["lang"]=="jp"){
+       if(isset($_GET["lang"]) && $_GET["lang"]=="JP"){
         $item = $database->select("tb_dishes",[ //La tabla base hace un inner join con los estados en donde el campo de id de estado (en destinations) sea igual al campo de estados en la tabla estados.
             "[>]tb_people_categories"=>["people_category_id" => "people_category_id"],
             "[>]tb_categories"=>["category_id" => "category_id"]
@@ -50,7 +50,7 @@
             "dish_id"=>$_GET["id"] //Where: id_destinations sea igual al que nos entró por parámetro
         ]);
 
-        $url_params= "id=".$item[0]["dish_id"]."&lang=jp";
+        $url_params= "id=".$item[0]["dish_id"]."&lang=JP";
         $lang= "JP";
        }
     }
@@ -88,7 +88,7 @@
             /*display: flex;
             align-items: center;
             justify-content: center;*/
-            background: url(./imgs/body-background.png);
+            background: url(./imgs/waves_background.png);
             background-repeat: no-repeat;
             background-size: cover;
             background-color: black;
@@ -181,15 +181,15 @@
         /*Components*/
         .dish-image {
             width: 25vw;
-            height: 40vh;
+            height: 50vh;
             object-fit: cover;
             border-radius: 2rem;
         }
 
         .nav-cart-button {
-            background-color: var(--clr-orange);
+            /*background-color: var(--clr-orange);*/
             color: #fff;
-            border: none;
+            border: 4px solid white;
             padding: 0.9rem 3rem;
             cursor: pointer;
             transition: background-color 0.3s;
@@ -238,7 +238,7 @@
 
             list-style-type: none;
             text-decoration: none;
-            gap: 5rem;
+            gap: 2rem;
             transition: transform 0.2s ease-in-out;
 
             align-items: center;
@@ -297,11 +297,11 @@
                     <li><a class="nav-list-link nav-cart-button" href="./index.php" onclick="playSound()">Go Back</a></li>
                     <li><a class="nav-list-link nav-cart-button" href="./index.php">Home</a></li>
                     <!-- <li><a class="nav-list-link" href="#">Locations</a></li> -->
-                    <li><img class="logo" src="./imgs/Hideyoshi.png" alt="logo"></li>
+                    <!--<li><img class="logo" src="./imgs/Hideyoshi.png" alt="logo"></li> -->
                     <li><a class="nav-list-link nav-cart-button" href="./cart.php">Cart</a></li>
-                    <button class= "nav-cart-button"></button>
+                    
                     <?php 
-                        echo "<span id='lang' class='lang-btn' onclick= 'getTranslation(".$item[0]['dish_id'].")'>JP</span>";
+                        echo "<span id='lang' class='nav-cart-button' onclick= 'getTranslation(".$item[0]['dish_id'].")'>JP</span>";
                     ?>
                     
                 </ul>
@@ -342,14 +342,14 @@
         </div>
     </form>
     <script>
-        let requestLang = "jp";
+        let requestLang = "JP";
         let translateBtn = document.getElementById("lang");
 
         function switchLang(){
-            if(requestLang=="en"){
-                requestLang = "jp";
+            if(requestLang=="EN"){
+                requestLang = "JP";
             }else{
-                requestLang = "en";
+                requestLang = "EN";
             }
             translateBtn.innerText=requestLang;
         }
