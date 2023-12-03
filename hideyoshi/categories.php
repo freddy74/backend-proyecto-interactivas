@@ -64,13 +64,13 @@
             foreach ($items as $item) {
                 if ($item["category_id"] == $category_number)  {
                     echo "<div class='card2'>".
-                        "<a href='./details.php?id=".$item["dish_id"]."'>".
+                        "<a href='./details-ajax.php?id=".$item["dish_id"]."'>".
                             "<img class='card2-img' src='./imgs/".$item["dish_image"]."' alt=''>".
                         "</a>".
                         "<h2 class='card2-h2'>".$item["dish_name"]."</h2>".
                         "<p class='card2-p'>".substr($item["dish_description"],0,85)."...</p>".
                         "<p class='price2'>$".$item["dish_price"]."</p>".
-                        "<a  class='btn2' href='./details.php?id=".$item["dish_id"]."'>Add to cart</a>".
+                        "<a  class='btn2' href='./details-ajax.php?id=".$item["dish_id"]."'>Add to cart</a>".
                     "</div>";
                 }
             }

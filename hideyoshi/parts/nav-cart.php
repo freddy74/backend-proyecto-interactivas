@@ -9,11 +9,5 @@
                 <button class= "nav-cart-button">Translate</button>
             </ul>
         </nav>
-
-
-     
-
-
-
 </header>
 

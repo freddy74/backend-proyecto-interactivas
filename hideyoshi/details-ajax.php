@@ -15,7 +15,8 @@
             "tb_dishes.dish_name_jp",
             "tb_dishes.dish_description_jp",
             "tb_dishes.dish_image",
-            "tb_dishes.destination_price",
+            "tb_dishes.dish_featured",
+            "tb_dishes.dish_price",
             "tb_people_categories.people_category_name",
             "tb_people_categories.people_category_description",
             "tb_categories.category_name",
@@ -32,7 +33,7 @@
 
 
        }else{
-        $item = $database->select("tb_dish",[ //La tabla base hace un inner join con los estados en donde el campo de id de estado (en destinations) sea igual al campo de estados en la tabla estados.
+        $item = $database->select("tb_dishes",[ //La tabla base hace un inner join con los estados en donde el campo de id de estado (en destinations) sea igual al campo de estados en la tabla estados.
             "[>]tb_people_categories"=>["people_category_id" => "people_category_id"],
             "[>]tb_categories"=>["category_id" => "category_id"]
         ],[
@@ -40,7 +41,7 @@
             "tb_dishes.dish_name",
             "tb_dishes.dish_description",
             "tb_dishes.dish_image",
-            "tb_dishes.destination_price",
+            "tb_dishes.dish_price",
             "tb_people_categories.people_category_name",
             "tb_people_categories.people_category_description",
             "tb_categories.category_name",
@@ -290,9 +291,23 @@
 
 <body>
 
-    <?php
-    include "./parts/nav-cart.php";
-    ?>
+    <header>
+            <nav class="top-nav">
+                <ul class="nav-list">
+                    <li><a class="nav-list-link nav-cart-button" href="./index.php" onclick="playSound()">Go Back</a></li>
+                    <li><a class="nav-list-link nav-cart-button" href="./index.php">Home</a></li>
+                    <!-- <li><a class="nav-list-link" href="#">Locations</a></li> -->
+                    <li><img class="logo" src="./imgs/Hideyoshi.png" alt="logo"></li>
+                    <li><a class="nav-list-link nav-cart-button" href="./cart.php">Cart</a></li>
+                    <button class= "nav-cart-button"></button>
+                    <?php 
+                        echo "<span id='lang' class='lang-btn' onclick= 'getTranslation(".$item[0]['dish_id'].")'>JP</span>";
+                    ?>
+                    
+                </ul>
+                    
+            </nav>
+    </header>
 
     <form action="cart.php" method="post">
         <div class="details-container">
@@ -303,18 +318,18 @@
                 "</div>" .
                 "<div class='info-container'>" .
                 "<div class='dish-details'>" .
-                "<div class='dish-name'>" . $item[0]["dish_name"] . "</div>" .
+                "<div id='dish-name' class='dish-name'>" . $item[0]["dish_name"] . "</div>" .
                 "<p class='dish-price'>$" . $item[0]["dish_price"] . "</p>" .
 
                 "<div class='dish-categories'>";
-
+            /*
             if ($item[0]["dish_featured"] === "y") {
                 echo "<a class='dish-category-signatured' href='#'>Signatured Dish</a>";
             }
-
+            */
             echo "<a class='dish-category-signatured' href='#'>" . $item[0]["category_name"] . "</a>" .
                 "</div>" .
-                "<div class='dish-description'>" . $item[0]["dish_description"] . "</div>" .
+                "<div id='dish-description' class='dish-description'>" . $item[0]["dish_description"] . "</div>" .
                 "<input name='btn-cart' type='submit' class='add-to-cart' value='Add to Cart'>" .
                 "<input name='dish-name' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
                 "<input name='dish-' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
@@ -326,54 +341,43 @@
             ?>
         </div>
     </form>
-
-
-
-
-
     <script>
+        let requestLang = "jp";
+        let translateBtn = document.getElementById("lang");
 
-let requestLang = "JP";
+        function switchLang(){
+            if(requestLang=="en"){
+                requestLang = "jp";
+            }else{
+                requestLang = "en";
+            }
+            translateBtn.innerText=requestLang;
+        }
 
-function switchLang(){
-    if(requestLang == "EN") requestLang = "JP";
-    else requestLang = "EN";
-    document.getElementById("lang").innerText = requestLang;
-}
+        function getTranslation(id){
+            let info = {
+                dish_id: id,
+                language: requestLang 
+            };
 
-function getTranslation(id){
-    console.log(id);
-    
-
-    let info = {
-        dish_id: id,
-        language: requestLang
-    };
-
-    //fetch
-    fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/language.php",{
-
-        method: "POST",
-        mode: "same-origin",
-        credentials: "same-origin",
-        headers:{
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        },
-        //esta función codifica a json
-        body: JSON.stringify(info)
-    })
-    //se envían los datos a la BD
-    .then(response => response.json())
-    .then(data => {
-        //console.log(data.name);
-       // console.log(data.description);
-       switchLang();
-       document.getElementById("dish-name").innerText=data.name;
-       document.getElementById("dish-description").innerText=data.description;
-    })
-    .catch(err => console.log("error: " + err));
-}
+            fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/language.php", {
+                method: "POST",
+                mode: "same-origin",
+                credentials: "same-origin",
+                headers:{
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(info)
+            })
+            .then(response => response.json())
+            .then(data => {
+                switchLang();
+                document.getElementById("dish-name").innerText=data.name;
+                document.getElementById("dish-description").innerText=data.description;
+            })
+            .catch(err => console.log("Error: "+err));
+        }
 </script>
 
 
