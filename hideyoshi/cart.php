@@ -6,10 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn-cart'])) {
     $dishPrice = $_POST['dish-price'];
     $dishImage = $_POST['dish-image'];
     $quantity = $_POST['quantity'];
-   
-    $cart = json_decode($_COOKIE['cart'], true);
-    // isset($_COOKIE['cart']) ? --- : array()
 
+    $cart = json_decode($_COOKIE['cart'], true);
 
     // Verificar si el platillo ya está en el carrito
     $found = false;
@@ -37,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn-cart'])) {
     header('Location: cart.php');
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -54,14 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn-cart'])) {
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<style>
-    body {
-        background: var(--clr-light-green);
-    }
-</style>
-
 <header>
-    <nav class="top-nav">
+    <!-- <nav class="top-nav">
         <input class="mobile-check" type="checkbox">
 
         <label class="mobile-btn">
@@ -76,38 +67,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn-cart'])) {
             <li><a class="nav-list-link" href="#">Login</a></li>
             <li><a class="nav-list-link" href="#">About</a></li>
         </ul>
-    </nav>
+    </nav> -->
+
+    <section class="cart-info">
+        <h2 class="table-title">Your shopping cart</h2>
+        <a class="continue-shopping-btn" href="index.php">Continue shopping</a>
+    </section>
+
 
 </header>
 
 <body>
-    <div class="admin-container">
-        <table>
+    <div class="cart-container">
+
+        <table class="cart-table">
             <tr>
-                <td>Image</td>
-                <td>Dish name</td>
-                <td>Quantity</td>
-                <td>Delete</td>
-                <td>Price</td>
+                <td class="table-title">Image</td>
+                <td class="table-title">Dish name</td>
+                <td class="table-title">Quantity</td>
+                <td class="table-title">Delete</td>
+                <td class="table-title">Price</td>
             </tr>
+
             <?php
             if (isset($_COOKIE['cart'])) {
-                // Obtener el contenido de la cookie y convertirlo a un array
                 $cartItems = json_decode($_COOKIE['cart'], true);
 
-                var_dump($cartItems);
+                $subtotal = 0;
+
                 // Iterar sobre los platillos en el carrito
                 foreach ($cartItems as $cartItem) {
                     echo '<tr>';
                     echo '<td><img class="cart-image" src="./imgs/' . $cartItem['dishImage'] . '" alt="Dish Image"></td>';
                     echo '<td>' . $cartItem['dishName'] . '</td>';
                     echo '<td>' . $cartItem['quantity'] . '</td>';
-                    echo '<td><a href="remove_from_cart.php?dishName=' . urlencode($cartItem['dishName']) . '">Delete</a></td>';
+                    echo '<td><a href="#">Delete</a></td>';
                     echo '<td>$' . $cartItem['dishPrice'] * $cartItem['quantity'] . '</td>';
                     echo '</tr>';
+
+                    $subtotal += $cartItem['dishPrice'] * $cartItem['quantity'];
                 }
+
+                echo '<div class="checkout-container">
+                <p>Subtotal: $' . $subtotal . '</p>
+                <p>Total: $' . $subtotal . '</p>
+                <a class="checkout-btn" href="index.php">Checkout</a>
+                </div>';
             } else {
-                echo '<tr><td colspan="5">No items in the cart</td></tr>';
+                echo '<tr><td class="no-items" colspan="5">No items in the cart</td></tr>';
             }
 
             ?>

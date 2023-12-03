@@ -47,7 +47,7 @@ if (isset($_GET)) {
             background-repeat: no-repeat;
             background-size: cover;
             background-color: black;
-            
+
         }
 
 
