@@ -23,8 +23,8 @@ if (isset($_GET)) {
         "dish_id" => $_GET["id"]
     ]);
 }
-?>
 
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -47,7 +47,7 @@ if (isset($_GET)) {
             background-repeat: no-repeat;
             background-size: cover;
             background-color: black;
-            
+
         }
 
 
@@ -242,6 +242,7 @@ if (isset($_GET)) {
         /*Nav*/
     </style>
 
+
 </head>
 
 <body>
@@ -271,11 +272,13 @@ if (isset($_GET)) {
             echo "<a class='dish-category-signatured' href='#'>" . $item[0]["category_name"] . "</a>" .
                 "</div>" .
                 "<div class='dish-description'>" . $item[0]["dish_description"] . "</div>" .
+
+                "<input name='quantity' type='number'  class='add-to-cart' value='1' min='1'>" .
                 "<input name='btn-cart' type='submit' class='add-to-cart' value='Add to Cart'>" .
+
                 "<input name='dish-name' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
-                "<input name='dish-' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
-                "<input name='dish-name' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
-                "<input name='dish-name' type='hidden' value='" . $item[0]["dish_name"] . "'>" .
+                "<input name='dish-price' type='hidden' value='" . $item[0]["dish_price"] . "'>" .
+                "<input name='dish-image' type='hidden' value='" . $item[0]["dish_image"] . "'>" .
                 "</div>" .
                 "</div>" .
                 "</div>";
