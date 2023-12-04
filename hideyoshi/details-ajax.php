@@ -5,6 +5,8 @@ $link = "";
 $url_params = "";
 $lang = "";
 
+session_start();
+
 if ($_GET) {
     if (isset($_GET["lang"]) && $_GET["lang"] == "JP") {
         $item = $database->select("tb_dishes", [ //La tabla base hace un inner join con los estados en donde el campo de id de estado (en destinations) sea igual al campo de estados en la tabla estados.
@@ -27,8 +29,8 @@ if ($_GET) {
         $item[0]["dish_name"] = $item[0]["dish_name_jp"];
         $item[0]["dish_description"] = $item[0]["dish_description_jp"];
 
-
-        $url_params = "id=" . $item[0]["dish_id"];
+        $url_params = "id=" . $item[0]["dish_id"] . "&lang=JP";
+        // $url_params = "id=" . $item[0]["dish_id"];
         $lang = "EN";
     } else {
         $item = $database->select("tb_dishes", [ //La tabla base hace un inner join con los estados en donde el campo de id de estado (en destinations) sea igual al campo de estados en la tabla estados.
@@ -47,12 +49,11 @@ if ($_GET) {
         ], [
             "dish_id" => $_GET["id"] //Where: id_destinations sea igual al que nos entró por parámetro
         ]);
-
-        $url_params = "id=" . $item[0]["dish_id"] . "&lang=JP";
+        $url_params = "id=" . $item[0]["dish_id"];
+        // $url_params = "id=" . $item[0]["dish_id"] . "&lang=JP";
         $lang = "JP";
     }
 }
-
 
 /*
         if(isset($_SESSION['isLoggedIn'])){ //¿hay sesión iniciada y dentro de esta se encuentra difinida la variable "isLoggedIn"?
@@ -320,7 +321,7 @@ if ($_GET) {
                 "</div>" .
                 "<div class='info-container'>" .
                 "<div class='dish-details'>" .
-                "<div class='dish-name'>" . $item[0]["dish_name"] . "</div>" .
+                "<div id='dish-name' class='dish-name'>" . $item[0]["dish_name"] . "</div>" .
                 "<p class='dish-price'>$" . $item[0]["dish_price"] . "</p>" .
 
                 "<div class='dish-categories'>";
@@ -331,7 +332,7 @@ if ($_GET) {
 
             echo "<a class='dish-category-signatured' href='#'>" . $item[0]["category_name"] . "</a>" .
                 "</div>" .
-                "<div class='dish-description'>" . $item[0]["dish_description"] . "</div>" .
+                "<div id='dish-details' class='dish-description'>" . $item[0]["dish_description"] . "</div>" .
                 "<div class='input-container'>" .
                 "<input name='quantity' type='number' class='quantity-input' value='1' min='1'>" .
                 "<input name='btn-cart' type='submit' class='add-to-cart' value='Add to Cart'>" .
@@ -363,12 +364,12 @@ if ($_GET) {
                 dish_id: id,
                 language: requestLang
             };
-            
-            //path freddy
-            // fetch("http://localhost/interactivas2023/backend-proyecto-interactivas/hideyoshi/language.php", {
 
-            //path isaac
-            fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/language.php", {
+            //path freddy
+            fetch("http://localhost/interactivas2023/backend-proyecto-interactivas/hideyoshi/language.php", {
+
+                    //path isaac
+                    // fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/language.php", {
                     method: "POST",
                     mode: "same-origin",
                     credentials: "same-origin",
@@ -382,7 +383,8 @@ if ($_GET) {
                 .then(data => {
                     switchLang();
                     document.getElementById("dish-name").innerText = data.name;
-                    document.getElementById("dish-description").innerText = data.description;
+                    document.getElementById("dish-details").innerText = data.description;
+                    // console.log(data.name);
                 })
                 .catch(err => console.log("Error: " + err));
         }
