@@ -2,38 +2,38 @@
 require_once '../database.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn-cart'])) {
-    $dishName = $_POST['dish-name'];
-    $dishPrice = $_POST['dish-price'];
-    $dishImage = $_POST['dish-image'];
-    $quantity = $_POST['quantity'];
+        $dishName = $_POST['dish-name'];
+        $dishPrice = $_POST['dish-price'];
+        $dishImage = $_POST['dish-image'];
+        $quantity = $_POST['quantity'];
 
-    $cart = json_decode($_COOKIE['cart'], true);
+        $cart = json_decode($_COOKIE['cart'], true);
 
-    // Verificar si el platillo ya está en el carrito
-    $found = false;
-    foreach ($cart as $key => $cartItem) {
-        if ($cartItem['dishName'] == $dishName) {
-            // Si ya existe, incrementar la cantidad y salir del bucle
-            $cart[$key]['quantity'] += $quantity;
-            $found = true;
-            break;
+        // Verificar si el platillo ya está en el carrito
+        $found = false;
+        foreach ($cart as $key => $cartItem) {
+            if ($cartItem['dishName'] == $dishName) {
+                // Si ya existe, incrementar la cantidad y salir del bucle
+                $cart[$key]['quantity'] += $quantity;
+                $found = true;
+                break;
+            }
         }
+
+        // Si no se encontró el platillo en el carrito, agregar uno nuevo
+        if (!$found) {
+            $cartItem = array(
+                'dishName' => $dishName,
+                'dishPrice' => $dishPrice,
+                'dishImage' => $dishImage,
+                'quantity' => $quantity
+            );
+            $cart[] = $cartItem;
+        }
+        setcookie('cart', json_encode($cart), time() + (3600));
+        header('Location: cart.php');
     }
 
-    // Si no se encontró el platillo en el carrito, agregar uno nuevo
-    if (!$found) {
-        $cartItem = array(
-            'dishName' => $dishName,
-            'dishPrice' => $dishPrice,
-            'dishImage' => $dishImage,
-            'quantity' => $quantity
-        );
-        $cart[] = $cartItem;
-    }
-
-    setcookie('cart', json_encode($cart), time() + (3600));
-    header('Location: cart.php');
-}
 
 ?>
 
@@ -74,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn-cart'])) {
 
             <?php
             if (isset($_COOKIE['cart'])) {
+
                 $cartItems = json_decode($_COOKIE['cart'], true);
 
                 $subtotal = 0;
@@ -99,6 +100,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn-cart'])) {
             } else {
                 echo '<tr><td class="no-items" colspan="5">No items in the cart</td></tr>';
             }
+
+
+
 
             ?>
         </table>

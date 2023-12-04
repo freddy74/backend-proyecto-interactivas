@@ -1,3 +1,29 @@
+<?php
+require_once '../database.php';
+$message = "";
+if ($_POST) {
+    if (isset($_POST["login"])) {
+        $user = $database->select("tb_users", "*", [
+            "user_username" => $_POST["username"]
+        ]);
+        if (count($user) > 0) {
+            //validate password
+            if (password_verify($_POST["password"], $user[0]["user_password"])) {
+                session_start();
+                $_SESSION["isLoggedIn"] = true;
+                $_SESSION["fullname"] = $user[0]["user_fullname"];
+                header("location: cart.php");
+            } else {
+                $message = "wrong username or password";
+            }
+        } else {
+            $message = "wrong username or password";
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,8 +33,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="<link rel=" preconnect href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <title>Log In</title>
     <link rel="stylesheet" href="./css/main.css">
 
@@ -62,7 +87,7 @@
             background-color: var(--clr-orange);
             font-weight: bold;
             color: var(--clr-white);
-            padding: 1rem ;
+            padding: 1rem;
             border: none;
             border-radius: 1rem;
             cursor: pointer;
@@ -95,7 +120,6 @@
             font-size: 12px;
             text-decoration: none;
         }
-
     </style>
 
 </head>
@@ -113,39 +137,7 @@
         </nav>
     </header>
     <main class="login-main">
-        <!-- <main>
-        <div class="box-container">
-            <div class="back-box">
-                <div class="back-box-login">
-                    <h3>Have an account?</h3>
-                    <p>Log in with your username and password</p>
-                    <button id="btn-login">Login</button>
-                </div>
-                <div class="back-box-register">
-                    <h3>Not a member yet?</h3>
-                    <p>Log in with your username and password</p>
-                    <button id="btn-register">Register</button>
-                </div>
-            </div>
-            <div class="login-register-container">
-                <form action="" class="register-form">
-                    <h2>Sign In</h2>
-                    <input type="text" placeholder="Name">
-                    <input type="text" placeholder="Email">
-                    <input type="text" placeholder="Username">
-                    <input type="password" placeholder="Password">
-                    <button>Sign In</button>
-                </form>
-                <form action="" class="login-form">
-                    <h2>Log In</h2>
-                    <input type="text" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <button>Enter</button>
-                </form>
-            </div>
-        </div>
-    </main> -->
-        <form class="login-form">
+        <form class="login-form" method="post" action="login.php">
             <h2 class="login-title">Log In</h2>
             <input class="username-field" placeholder="Username" type="text" id="username" name="username" required>
             <input class="password-field" placeholder="Password" type="password" id="password" name="password" required>
@@ -154,6 +146,8 @@
                 <h2>Not a member yet?</h2>
                 <a class="sign-up-link" href="./sign-in.php">Create account!</a>
             </div>
+            <p><?php echo $message; ?></p>
+            <input type="hidden" name="login" value="1">
         </form>
     </main>
 </body>
