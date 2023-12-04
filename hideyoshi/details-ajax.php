@@ -363,7 +363,7 @@ if ($_GET) {
                 dish_id: id,
                 language: requestLang
             };
-
+            
             //path freddy
             // fetch("http://localhost/interactivas2023/backend-proyecto-interactivas/hideyoshi/language.php", {
 

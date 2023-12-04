@@ -1,3 +1,11 @@
+<?php 
+    require_once "../database.php";
+
+    $dishes = $database->select("tb_dishes","*");
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,6 +93,26 @@
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slides -->
+                        <?php 
+                            foreach ($dishes as $dish) {
+                                if ($dish["dish_featured"]=== "y") {
+                                    echo 
+                                    "<div class='swiper-slide'>".
+                                        "<img class='slider-img' src='./imgs/".$dish["dish_image"]."' alt='gyoza'>".
+                                        "<div class='popular-card-text'>".
+                                            "<p class='card2-h2'>".$dish["dish_name"]."</p>".
+                                            "<p class='price2'>$".$dish["dish_price"]."</p>".
+                                        "</div>".
+                                        "<div class='popular-btn-cont'>".
+                                            "<a class='read-more-btn' href='./details-ajax.php?id=".$dish["dish_id"]."'>Read More</a>".
+                                        "</div>".
+                                    "</div>";
+                                }
+                            }
+                        ?>
+
+
+
                         <div class="swiper-slide">
                             <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
                             <div class="popular-card-text">
@@ -95,46 +123,7 @@
                                 <a class="read-more-btn" href="#">Read More</a>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
-                            <div class="popular-card-text">
-                                <p class="card2-h2">Gyoza</p>
-                                <p class="price2">$10.99</p>
-                            </div>
-                            <div class="popular-btn-cont">
-                                <a class="read-more-btn" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
-                            <div class="popular-card-text">
-                                <p class="card2-h2">Gyoza</p>
-                                <p class="price2">$10.99</p>
-                            </div>
-                            <div class="popular-btn-cont">
-                                <a class="read-more-btn" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
-                            <div class="popular-card-text">
-                                <p class="card2-h2">Gyoza</p>
-                                <p class="price2">$10.99</p>
-                            </div>
-                            <div class="popular-btn-cont">
-                                <a class="read-more-btn" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
-                            <div class="popular-card-text">
-                                <p class="card2-h2">Gyoza</p>
-                                <p class="price2">$10.99</p>
-                            </div>
-                            <div class="popular-btn-cont">
-                                <a class="read-more-btn" href="#">Read More</a>
-                            </div>
-                        </div>
+
                     </div>
                     <!-- If we need pagination -->
                     <div class="swiper-pagination"></div>
