@@ -1,0 +1,18 @@
+.search-container {
+    display: grid;
+    justify-items: center;
+    margin-bottom: 3rem;
+}
+
+.found-title {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-secondary);
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 4rem;
+}

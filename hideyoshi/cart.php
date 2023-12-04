@@ -52,28 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn-cart'])) {
 </head>
 
 <header>
-    <!-- <nav class="top-nav">
-        <input class="mobile-check" type="checkbox">
-
-        <label class="mobile-btn">
-            <span></span>
-        </label>
-        <ul class="nav-list">
-            <li><a class="nav-list-link" href="./index.php">Home</a></li>
-            <li><a class="nav-list-link" href="#">Cart</a></li>
-        </ul>
-        <img class="logo" src="./imgs/Hideyoshi.png" alt="logo">
-        <ul class="responsive-top nav-list">
-            <li><a class="nav-list-link" href="#">Login</a></li>
-            <li><a class="nav-list-link" href="#">About</a></li>
-        </ul>
-    </nav> -->
 
     <section class="cart-info">
         <h2 class="table-title">Your shopping cart</h2>
         <a class="continue-shopping-btn" href="index.php">Continue shopping</a>
     </section>
-
 
 </header>
 

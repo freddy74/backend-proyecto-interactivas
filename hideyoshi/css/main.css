@@ -13,6 +13,7 @@
 
 @import url('./components/components.css');
 
+@import url('./pages/filter.css');
 @import url('./pages/cart.css');
 @import url('./pages/details.css');
 

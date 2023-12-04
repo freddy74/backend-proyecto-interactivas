@@ -33,8 +33,8 @@ if (isset($_GET['category'])) {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="<link rel=" preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,48 +65,37 @@ if (isset($_GET['category'])) {
             <h2 class="main-dishes-title-japanese">メインディッシュ</h2>
         </section>
 
-        <div class="search-container">
-            <form>
-                <select name="people_category" id="people_category" class="filter">
-                    <?php
-                    foreach ($qty_categories as $qty_category) {
-                        echo "<option value='" . $qty_category["people_category_id"] . "'>" . $qty_category["people_category_name"] . "</option>";
-                    }
-                    ?>
-                </select>
+        <form>
+            <select name="people_category" id="people_category" class="filter">
+                <?php
+                foreach ($qty_categories as $qty_category) {
+                    echo "<option value='" . $qty_category["people_category_id"] . "'>" . $qty_category["people_category_name"] . "</option>";
+                }
+                ?>
+            </select>
 
-                <input id="search" type="button" class="btn search-btn" value="SEARCH DISHES" onclick="getFilters()"> <!-- evento onclick-->
-            </form>
-        </div>
-        <p id='found' class='activity-title'></p>
+            <input id="search" type="button" class="btn search-btn" value="SEARCH DISHES" onclick="getFilters()"> <!-- evento onclick-->
+        </form>
 
-        </div>
+
 
     </header>
-    <section id="cards-container" class="cards_mainDishes-container">
-        <?php
-        foreach ($items as $item) {
-            if ($item["category_id"] == $category_number) {
-                echo "<div class='card2'>" .
-                    "<a href='./details-ajax.php?id=" . $item["dish_id"] . "'>" .
-                    "<img class='card2-img' src='./imgs/" . $item["dish_image"] . "' alt=''>" .
-                    "</a>" .
-                    "<h2 class='card2-h2'>" . substr($item["dish_name"], 0, 20) . "...</h2>" .
-                    "<p class='card2-p'>" . substr($item["dish_description"], 0, 85) . "...</p>" .
-                    "<p class='price2'>$" . $item["dish_price"] . "</p>" .
-                    "<a  class='btn2' href='./details-ajax.php?id=" . $item["dish_id"] . "'>View Details</a>" .
-                    "</div>";
-            }
-        }
-        ?>
-    </section>
+
 </body>
 
-<!-- <script>
+<div id="search-container" class="search-container">
+
+    <p id='found' class='found-title'></p>
+</div>
+
+
+</div>
+
+<script>
     function getFilters() {
 
         let info = {
-            state: document.getElementById("people_category").value
+            qty: document.getElementById("people_category").value
         };
 
         //fetch
@@ -122,37 +111,71 @@ if (isset($_GET['category'])) {
             })
             .then(response => response.json())
             .then(data => {
-                //console.log(data);
+                console.log(data);
 
                 let found = document.getElementById("found");
-                found.innerText = "We found: " + data.length + " destination(s)";
+                found.innerText = "We found: " + data.length + " dish(es)";
 
                 if (document.getElementById("items") !== null) document.getElementById("items").remove();
 
                 if (data.length > 0) {
                     console.log("sí hay");
 
+
                     // let container = document.getElementById("items");
                     let container = document.createElement("div");
                     container.setAttribute("id", "items");
-                    // container.classList.add("activities-container");
-                    // document.getElementById("destinations").appendChild(container);
+                    container.classList.add("cards_mainDishes-container");
+                    document.getElementById("search-container").appendChild(container);
 
-                    //data.forEach(function (item) {
+                    data.forEach(function(item) {
 
-                    //     let destination = document.createElement("section");
-                    //     destination.classList.add("activity");
-                    //     container.appendChild(destination);
+                        let dish = document.createElement("section");
+                        dish.classList.add("card2");
+                        container.appendChild(dish);
 
-                    // });
+                        let image = document.createElement("img");
+                        image.classList.add("card2-img");
+                        image.setAttribute("src", './imgs/' + item.dish_image);
+                        image.setAttribute("alt", item.dish_name);
+                        dish.appendChild(image);
+
+                        let title = document.createElement("h2");
+                        title.classList.add("card2-h2");
+                        title.innerText = item.dish_name.substr(0, 20) + "...";
+                        dish.appendChild(title);
+
+                        let description = document.createElement("p");
+                        description.classList.add("card2-p");
+                        description.innerText = item.dish_description.substr(1, 70) + "...";
+                        dish.appendChild(description);
+
+                        let price = document.createElement("p");
+                        price.classList.add("price2");
+                        price.innerText = "$" + item.dish_price;
+                        dish.appendChild(price);
+
+                        let link = document.createElement("a");
+                        link.classList.add("btn2");
+                        link.classList.add("read-btn");
+                        link.setAttribute("href", "./details-ajax.php?id=" + item.dish_id);
+                        link.innerText = "View Details";
+                        dish.appendChild(link);
+
+
+                    });
                 }
-
-                console.log("no hay");
 
             })
             .catch(err => console.log("error: " + err));
 
     }
-</script> -->
+</script>
+
+<?php
+
+include("./parts/footer.php");
+
+?>
 
 </html>
