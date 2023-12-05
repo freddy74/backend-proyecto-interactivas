@@ -1,4 +1,4 @@
-*{
+* {
     font-family: var(--ff-main);
 }
 
@@ -6,16 +6,17 @@
     display: grid;
     width: 100vw;
     font-family: var(--ff-main);
-    background: white;
+    background: var(--clr-light-green);
     width: 80%;
     margin: auto;
-    padding-top: 3rem;
-    border-bottom: solid;
+    padding:3rem;
+    border-radius: 2rem;
     text-align: center;
 }
 
 label {
     font-family: var(--ff-secondary);
+    font-weight: var(--fw-bold);
 }
 
 input {
@@ -23,20 +24,26 @@ input {
     padding: .3rem;
 }
 
-.form-items{
+.form-items {
     display: flex;
     flex-direction: column;
     margin: 1rem;
 }
 
-input, textarea, select{
+input,
+textarea,
+select {
     padding: .5rem;
     border-radius: .5rem;
+    font-family: var(--ff-main);
 }
 
-#preview{
+#preview {
     display: block;
-    width: 30%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
 }
 
 input[type='file'] {
@@ -47,14 +54,41 @@ input[type='file'] {
 
 input[type='file']::before {
     content: 'Pick an image file';
-    color: white;
+    color: rgb(0, 0, 0);
     margin: 0 .7rem;
-  }
+}
 
-thead{
+thead {
     font-weight: bold;
 }
 
-td{
+td {
     padding: .7rem;
+}
+
+.action-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 6rem;
+}
+
+.add-form {
+    display: grid;
+    justify-content: center;
+} 
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+}
+
+.add-img-container { 
+    display: grid;
+    width: 50%;
+    justify-content: center;
+}
+
+.center-text{
+    text-align: center;
+    margin: 4rem 0 2rem 0;
 }

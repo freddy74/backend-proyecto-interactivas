@@ -133,11 +133,16 @@
 }
 
 .slider-img {
-    margin-top: 1rem;
+    width: 100%;
+    aspect-ratio: 3/3.17;
+    object-fit: cover;
+    object-position: top;
+
+    /* margin-top: 1rem;
     object-fit: cover;
     width: 90%;
     height: 50%;
-    border-radius: 2rem;
+    border-radius: 2rem; */
     z-index: -1;
 }
 
@@ -202,10 +207,11 @@
 }
 
 .card2-img {
-    width: 20rem;
-    height: 20rem;
-    /*max-width: 100%;*/
-    border-radius: 2rem;
+    width: 100%;
+    aspect-ratio: 3/3.17;
+    object-fit: cover;
+    object-position: top;
+
 }
 
 .card2:hover {

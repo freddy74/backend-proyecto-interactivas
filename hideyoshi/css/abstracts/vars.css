@@ -13,6 +13,7 @@
     --fs-xs: 1.75rem; /*28px Roboto Regular*/
     --fs-xs2: 1.45rem; /*24px Roboto Regular*/
     --fs-xxs: 1.25rem; /*20px  Roboto Regular-Light*/
+    --fs-xxxs: 1rem; /*16px  Roboto Regular-Light*/
     
     /*font weight*/
     --fw-bold: 700;  /*Roboto Condensed Bold*/

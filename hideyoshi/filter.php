@@ -65,7 +65,7 @@ if (isset($_GET['category'])) {
             <h2 class="main-dishes-title-japanese">メインディッシュ</h2>
         </section>
 
-        <form>
+        <form class="filter-form">
             <select name="people_category" id="people_category" class="filter">
                 <?php
                 foreach ($qty_categories as $qty_category) {
