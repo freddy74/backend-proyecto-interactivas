@@ -45,7 +45,7 @@
     */
 
     //link
-    $link = "https://www.allrecipes.com/recipes/77/drinks/";
+    $link = "https://www.allrecipes.com/recipes/79/desserts/";
 
     $filenames = [];
     $menu_item_names = [];
@@ -118,7 +118,8 @@
 
     //get and download images
      foreach ($filenames as $index=>$image){
-        file_put_contents("../imgs/".$image.".jpg", file_get_contents($image_urls[$index]));
+        file_put_contents("../../hideyoshi/imgs".$image.".jpg", file_get_contents($image_urls[$index]));
+        
      }
 
     //Reference: https://medoo.in/api/insert
