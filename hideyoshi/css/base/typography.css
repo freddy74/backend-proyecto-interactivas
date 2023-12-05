@@ -140,7 +140,8 @@
 .card2-h2 {
     margin: 0.625rem 0;
     font-family: var(--ff-secondary);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-s);
+    font-weight:bold;
     text-decoration: none;
 }
 

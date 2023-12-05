@@ -1,8 +1,8 @@
 .top-nav {
     display: flex;
     gap: 5rem;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     padding-top: 2rem;
     margin-bottom: 7rem;
 }
