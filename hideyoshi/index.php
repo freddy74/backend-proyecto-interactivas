@@ -108,17 +108,6 @@ $dishes = $database->select("tb_dishes", "*");
                         }
                         ?>
 
-                        <div class="swiper-slide">
-                            <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">
-                            <div class="popular-card-text">
-                                <p class="card2-h2">Gyoza</p>
-                                <p class="price2">$10.99</p>
-                            </div>
-                            <div class="popular-btn-cont">
-                                <a class="read-more-btn" href="#">Read More</a>
-                            </div>
-                        </div>
-
                     </div>
                     <!-- If we need pagination -->
                     <div class="swiper-pagination"></div>
