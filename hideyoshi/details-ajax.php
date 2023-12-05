@@ -366,10 +366,9 @@ if ($_GET) {
             };
 
             //path freddy
-            fetch("http://localhost/interactivas2023/backend-proyecto-interactivas/hideyoshi/language.php", {
-
+            //
                     //path isaac
-                    // fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/language.php", {
+                    fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/language.php", {
                     method: "POST",
                     mode: "same-origin",
                     credentials: "same-origin",
