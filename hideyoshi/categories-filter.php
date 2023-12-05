@@ -7,10 +7,11 @@ $qty_categories =  $database->select("tb_people_categories", "*");
 
 $category_name = "";
 $category_img = "";
-$category_number = "";
+$category_number = ""; //guarda id de la categoría
 
 if (isset($_GET['category'])) {
     $category = $_GET['category'];
+
     if ($category === "main_dishes") {
         $category_name = "Main Dishes";
         $category_number = "1";
@@ -64,25 +65,25 @@ if (isset($_GET['category'])) {
             ?>
             <h2 class="main-dishes-title-japanese">メインディッシュ</h2>
         </section>
-
-        <div class="search-container">
-            <form>
-                <select name="people_category" id="people_category" class="filter">
-                    <?php
-                    foreach ($qty_categories as $qty_category) {
-                        echo "<option value='" . $qty_category["people_category_id"] . "'>" . $qty_category["people_category_name"] . "</option>";
-                    }
-                    ?>
-                </select>
-
-                <input id="search" type="button" class="btn search-btn" value="SEARCH DISHES" onclick="getFilters()"> <!-- evento onclick-->
-            </form>
-        </div>
-        <p id='found' class='activity-title'></p>
-
-        </div>
-
     </header>
+
+    <div class="search-container">
+        <form class="filter-form">
+            <select class="filter" name="people_category" id="people_category">
+                <?php
+                foreach ($qty_categories as $qty_category) {
+                    echo "<option value='" . $qty_category["people_category_id"] . "'>" . $qty_category["people_category_name"] . "</option>";
+                }
+                ?>
+            </select>
+
+            <input id="search" type="button" class="search-btn" value="SEARCH DISHES" onclick="getFilters()"> <!-- evento onclick-->
+        </form>
+    </div>
+    <p id='found' class='found-title'></p>
+
+    </div>
+
     <section id="cards-container" class="cards_mainDishes-container">
         <?php
         foreach ($items as $item) {
@@ -102,14 +103,16 @@ if (isset($_GET['category'])) {
     </section>
 </body>
 
-<!-- <script>
+<script>
     function getFilters() {
 
+        var categoryNumber = '<?php echo $category_number; ?>'; //traer la id a JS
+        console.log(categoryNumber); //debbuging
         let info = {
-            state: document.getElementById("people_category").value
+            qty: document.getElementById("people_category").value,
+            category: categoryNumber //se agrega al array de info para traer la categoría desde la bd
         };
 
-        //fetch
         fetch("http://localhost/interactivas2023/backend-proyecto-interactivas/hideyoshi/response.php", {
                 method: "POST",
                 mode: "same-origin",
@@ -122,37 +125,60 @@ if (isset($_GET['category'])) {
             })
             .then(response => response.json())
             .then(data => {
-                //console.log(data);
-
                 let found = document.getElementById("found");
-                found.innerText = "We found: " + data.length + " destination(s)";
+                found.innerText = "We found: " + data.length + " dish(es)";
 
-                if (document.getElementById("items") !== null) document.getElementById("items").remove();
+                //limpia el contenedor antes de mostrar nuevos resultados, para evitar duplicados o apilados
+                let cardsContainer = document.getElementById("cards-container");
+                cardsContainer.innerHTML = "";
 
                 if (data.length > 0) {
-                    console.log("sí hay");
+                    data.forEach(function(item) {
+                        // Verificar si la cantidad de personas coincide y además, filtra por categoría, para mostrar unicamente la seleccionada
+                        if (item.people_category_id == info.qty && item.category_id == info.category) {
 
-                    // let container = document.getElementById("items");
-                    let container = document.createElement("div");
-                    container.setAttribute("id", "items");
-                    // container.classList.add("activities-container");
-                    // document.getElementById("destinations").appendChild(container);
+                            let dish = document.createElement("div");
+                            dish.classList.add("card2");
 
-                    //data.forEach(function (item) {
+                            let link = document.createElement("a");
+                            link.href = './details-ajax.php?id=' + item.dish_id;
+                            dish.appendChild(link);
 
-                    //     let destination = document.createElement("section");
-                    //     destination.classList.add("activity");
-                    //     container.appendChild(destination);
+                            let image = document.createElement("img");
+                            image.classList.add('card2-img');
+                            image.src = './imgs/' + item.dish_image;
+                            image.alt = '';
+                            link.appendChild(image);
 
-                    // });
+                            let title = document.createElement("h2");
+                            title.classList.add('card2-h2');
+                            title.innerText = item.dish_name.substr(0, 20) + '...';
+                            dish.appendChild(title);
+
+                            let description = document.createElement("p");
+                            description.classList.add('card2-p');
+                            description.innerText = item.dish_description.substr(1, 70) + '...';
+                            dish.appendChild(description);
+
+                            let price = document.createElement("p");
+                            price.classList.add('price2');
+                            price.innerText = '$' + item.dish_price;
+                            dish.appendChild(price);
+
+                            let btn = document.createElement("a");
+                            btn.classList.add('btn2');
+                            btn.classList.add('read-btn');
+                            btn.href = './details-ajax.php?id=' + item.dish_id;
+                            btn.innerText = 'View Details';
+                            dish.appendChild(btn);
+
+                            cardsContainer.appendChild(dish);
+                        }
+                    });
                 }
-
-                console.log("no hay");
-
             })
             .catch(err => console.log("error: " + err));
-
     }
-</script> -->
+</script>
 
 </html>

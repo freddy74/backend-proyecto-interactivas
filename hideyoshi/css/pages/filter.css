@@ -4,15 +4,33 @@
     margin-bottom: 3rem;
 }
 
+.search-btn {
+    border: none;
+    background-color: black;
+    color: var(--clr-white);
+    padding: 1rem;
+    cursor: pointer;
+}
+
 .found-title {
     font-size: var(--fs-xs);
     font-family: var(--ff-secondary);
+    font-weight: var(--fw-bold);
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .filter-form {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 4rem;
+}
+
+.filter {
+    width: 100%;
+    border: none;
+}
+
+option {
+    border: none;
 }

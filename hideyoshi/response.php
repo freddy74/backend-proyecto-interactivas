@@ -11,7 +11,8 @@ if (isset($_SERVER["CONTENT_TYPE"])) {
 
         $items = $database->select("tb_dishes", "*", [
             "AND" => [
-                "people_category_id" => $decoded["qty"]
+                "people_category_id" => $decoded["qty"],
+                "category_id" => $decoded["category"]
             ]
         ]);
 

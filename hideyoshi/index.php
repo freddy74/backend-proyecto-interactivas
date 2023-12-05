@@ -1,10 +1,8 @@
-<?php 
-    require_once "../database.php";
+<?php
+require_once "../database.php";
 
-    $dishes = $database->select("tb_dishes","*");
+$dishes = $database->select("tb_dishes", "*");
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,10 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hideyoshi - Japanese Food</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="<link rel=" preconnect" href="https://fonts.googleapis.com">
+    <link rel=" preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -25,8 +22,8 @@
     <header class="hero-container">
 
         <nav class="top-nav">
-        <input class="mobile-check" type="checkbox">
-           
+            <input class="mobile-check" type="checkbox">
+
             <label class="mobile-btn">
                 <span></span>
             </label>
@@ -40,7 +37,7 @@
                 <li><a class="nav-list-link" href="#">About</a></li>
             </ul>
         </nav>
-        
+
         <section class="hero-text-container">
             <h1 class="hero-title">Enjoy the most traditional</h1>
             <h2 class="hero-title-yellow hero-title">Japanese Food!</h2>
@@ -58,25 +55,25 @@
         <div class="menu-cards">
             <div class="card">
                 <h2 class="text-card">Main Dishes</h2>
-                <a href="./categories.php?category=main_dishes">
+                <a href="./categories-filter.php?category=main_dishes">
                     <img class="menu-img" src="./imgs/main-dishes-card.png" alt="main-dishes-card">
                 </a>
             </div>
             <div class="card">
                 <h2 class="text-card">Desserts</h2>
-                <a href="./categories.php?category=desserts">
+                <a href="./categories-filter.php?category=desserts">
                     <img class="menu-img" src="./imgs/desserts.png" alt="desserts">
                 </a>
             </div>
             <div class="card">
                 <h2 class="text-card">Appetizers</h2>
-                <a href="./categories.php?category=appetizers">
+                <a href="./categories-filter.php?category=appetizers">
                     <img class="menu-img" src="./imgs/appetizers.png" alt="appetizers">
                 </a>
             </div>
             <div class="card">
                 <h2 class="text-card">Beverages</h2>
-                <a href="./categories.php?category=beverages">
+                <a href="./categories-filter.php?category=beverages">
                     <img class="menu-img" src="./imgs/beverages.png" alt="beverages">
                 </a>
             </div>
@@ -93,25 +90,23 @@
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slides -->
-                        <?php 
-                            foreach ($dishes as $dish) {
-                                if ($dish["dish_featured"]=== "y") {
-                                    echo 
-                                    "<div class='swiper-slide'>".
-                                        "<img class='slider-img' src='./imgs/".$dish["dish_image"]."' alt='gyoza'>".
-                                        "<div class='popular-card-text'>".
-                                            "<p class='card2-h2'>".$dish["dish_name"]."</p>".
-                                            "<p class='price2'>$".$dish["dish_price"]."</p>".
-                                        "</div>".
-                                        "<div class='popular-btn-cont'>".
-                                            "<a class='read-more-btn' href='./details-ajax.php?id=".$dish["dish_id"]."'>Read More</a>".
-                                        "</div>".
+                        <?php
+                        foreach ($dishes as $dish) {
+                            if ($dish["dish_featured"] === "y") {
+                                echo
+                                "<div class='swiper-slide'>" .
+                                    "<img class='slider-img' src='./imgs/" . $dish["dish_image"] . "' alt='gyoza'>" .
+                                    "<div class='popular-card-text'>" .
+                                    "<p class='card2-h2'>" . $dish["dish_name"] . "</p>" .
+                                    "<p class='price2'>$" . $dish["dish_price"] . "</p>" .
+                                    "</div>" .
+                                    "<div class='popular-btn-cont'>" .
+                                    "<a class='read-more-btn' href='./details-ajax.php?id=" . $dish["dish_id"] . "'>Read More</a>" .
+                                    "</div>" .
                                     "</div>";
-                                }
                             }
+                        }
                         ?>
-
-
 
                         <div class="swiper-slide">
                             <img class="slider-img" src="./imgs/gyoza.png" alt="gyoza">

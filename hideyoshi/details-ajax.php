@@ -78,7 +78,7 @@ if ($_GET) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Platillo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="<link rel=" preconnect" href="https://fonts.googleapis.com">
+    <link rel=" preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
@@ -367,8 +367,8 @@ if ($_GET) {
 
             //path freddy
             //
-                    //path isaac
-                    fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/language.php", {
+            //path isaac
+            fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/language.php", {
                     method: "POST",
                     mode: "same-origin",
                     credentials: "same-origin",
