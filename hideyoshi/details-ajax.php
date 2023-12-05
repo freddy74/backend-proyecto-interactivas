@@ -18,6 +18,7 @@ if ($_GET) {
             "tb_dishes.dish_description_jp",
             "tb_dishes.dish_image",
             "tb_dishes.dish_featured",
+            "tb_dishes.category_id",
             "tb_dishes.dish_price",
             "tb_people_categories.people_category_name",
             "tb_people_categories.people_category_description",
@@ -28,7 +29,7 @@ if ($_GET) {
         ]);
         $item[0]["dish_name"] = $item[0]["dish_name_jp"];
         $item[0]["dish_description"] = $item[0]["dish_description_jp"];
-
+        
         $url_params = "id=" . $item[0]["dish_id"] . "&lang=JP";
         // $url_params = "id=" . $item[0]["dish_id"];
         $lang = "EN";
@@ -41,6 +42,7 @@ if ($_GET) {
             "tb_dishes.dish_name",
             "tb_dishes.dish_description",
             "tb_dishes.dish_image",
+            "tb_dishes.category_id",
             "tb_dishes.dish_price",
             "tb_people_categories.people_category_name",
             "tb_people_categories.people_category_description",
@@ -52,6 +54,19 @@ if ($_GET) {
         $url_params = "id=" . $item[0]["dish_id"];
         // $url_params = "id=" . $item[0]["dish_id"] . "&lang=JP";
         $lang = "JP";
+
+
+        //para redireccionar a la pagina de categorias
+        if ($item[0]["category_name"] == "Main Dishes") {
+            $category_url = "main_dishes";
+        }elseif ($item[0]["category_name"] == "Appetizers") {
+            $category_url = "appetizers";
+        }elseif ($item[0]["category_name"] == "Desserts") {
+            $category_url = "desserts";
+        }elseif ($item[0]["category_name"] == "Beverages") {
+            $category_url = "beverages";
+        }
+
     }
 }
 
@@ -287,6 +302,14 @@ if ($_GET) {
             color: var(--clr-white);
         }
 
+
+
+        .text-qty{
+            font-family: var(--ff-main);
+            font-size: var(--fs-xs);
+            
+        }
+
         /*Nav*/
     </style>
 
@@ -295,9 +318,15 @@ if ($_GET) {
 <body>
 
     <header>
+
+    
         <nav class="top-nav">
             <ul class="nav-list">
-                <li><a class="nav-list-link nav-cart-button" href="./index.php" onclick="playSound()">Go Back</a></li>
+
+                <?php 
+                    echo "<li><a class='nav-list-link nav-cart-button' href='./categories.php?category=".$category_url."' >Go Back</a></li>"   
+                ?>
+                
                 <li><a class="nav-list-link nav-cart-button" href="./index.php">Home</a></li>
                 <!-- <li><a class="nav-list-link" href="#">Locations</a></li> -->
                 <!--<li><img class="logo" src="./imgs/Hideyoshi.png" alt="logo"></li> -->
@@ -334,6 +363,7 @@ if ($_GET) {
                 "</div>" .
                 "<div id='dish-details' class='dish-description'>" . $item[0]["dish_description"] . "</div>" .
                 "<div class='input-container'>" .
+                "<h2>Quantity</h2>".
                 "<input name='quantity' type='number' class='quantity-input' value='1' min='1'>" .
                 "<input name='btn-cart' type='submit' class='add-to-cart' value='Add to Cart'>" .
                 "<input name='dish-name' type='hidden' value='" . $item[0]["dish_name"] . "'>" .

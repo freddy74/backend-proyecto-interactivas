@@ -113,7 +113,7 @@ if ($_POST) {
                 <!-- name JP -->
                 <div class="form-items">
                     <label for="dish_name_JP">Dish Name (Japanese)</label>
-                    <input id="dish_name_JP" class="textfield" name="dish_name_JP" type="text" value="<?php echo $item[0]["dish_name_jp"] ?>">
+                    <input id="dish_name_JP" class="textfield" name="dish_name_jp" type="text" value="<?php echo $item[0]["dish_name_jp"] ?>">
                 </div>
 
                 <!-- people category -->
@@ -163,7 +163,7 @@ if ($_POST) {
                 <!-- description JP-->
                 <div class="form-items">
                     <label for="dish_description_JP">Dish Description (Japanese)</label>
-                    <textarea id="dish_description_JP" name="dish_description_JP" id="" cols="30" rows="10"><?php echo $item[0]["dish_description_jp"]; ?></textarea>
+                    <textarea id="dish_description_JP" name="dish_description_jp" id="" cols="30" rows="10"><?php echo $item[0]["dish_description_jp"]; ?></textarea>
                 </div>
 
                 <!-- dish featured -->

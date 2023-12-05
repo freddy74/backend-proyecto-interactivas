@@ -98,7 +98,7 @@ if ($_POST) {
             border: 0.060rem solid #ccc;
             border-radius: 0.375rem;
             transition: border-color 0.3s ease-in-out;
-            background-color: hsla(64, 100%, 50%, 0.39);
+            background-color: hsla(64, 2%, 66%, 0.39);
             
             
         }
@@ -108,7 +108,7 @@ if ($_POST) {
         }
 
         .button {
-            background-color: var(--clr-orange);
+            background-color: black;
             color: #fff;
             padding: 0.938rem;
             border: none;
@@ -119,8 +119,7 @@ if ($_POST) {
             font-weight: bold;
             transition: background-color 0.3s ease-in-out;
             margin-top: 2rem;
-            border-radius: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2.5rem;
         }
 
         .button:hover {
@@ -136,19 +135,15 @@ if ($_POST) {
         a {
             color: #e74c3c;
             text-decoration: none;
-            transition: color 0.3s ease-in-out;
         }
 
-        a:hover {
-            color: #970000;
-        }
-
+      
 
         .p {
             font-family: 'Roboto';
             font-size: 1.5rem;
             text-align: center;
-            color: #c0392b;
+            color: black;
 
         }
 
@@ -169,13 +164,18 @@ if ($_POST) {
             font-weight: bold;
             font-size: var(--fs-xxs);
             align-content:center;
-            background-color: var(--clr-orange);
+            background-color: none;
+            border: 4px solid black; 
             padding: .5em;
-            border-radius: 2rem;
-            border: none;
-            color: white;
-            
+            color: black;
+            transition: background-color 0.3s ease-in-out;
         }
+        .button-go-category:hover{
+            background-color: #8C8B8B; 
+        }
+
+
+
 
     </style>
 </head>
@@ -195,7 +195,7 @@ if ($_POST) {
                     <label for='fullname'>Fullname</label>
                 </div>
                 <div>
-                    <input class= "form-elements" id='fullname' class='form-input' type='text' name='Fullname' placeholder= "Name">
+                    <input class= "form-elements" id='fullname' class='form-input' type='text' name='fullname' placeholder= "Name">
                 </div>
                 <div>
                     <label for='email'>Email Address</label>
@@ -221,14 +221,19 @@ if ($_POST) {
                 <p class="p">
                     <?php echo $message; ?>
                 </p>
-                <input  class= "form-elements" type="hidden" name="register" value="1">
-            </form>
-        </section>
 
-        <div class= "button-container">
+                <input  class= "form-elements" type="hidden" name="register" value="1">
+                <div class= "button-container">
             <a class= "button-go-category" href="./index.php">Continue Watching</a>
         </div>
 
+
+
+
+            </form>
+        </section>
+
+       
 </body>
 
 </html>

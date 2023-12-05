@@ -10,14 +10,15 @@ if ($_POST) {
             //validate password
             if (password_verify($_POST["password"], $user[0]["user_password"])) {
                 session_start();
+                $_SESSION["id"] = $user[0]["user_id"];
                 $_SESSION["isLoggedIn"] = true;
                 $_SESSION["fullname"] = $user[0]["user_fullname"];
-                header("location: cart.php");
+                header("location: index.php");
             } else {
-                $message = "wrong username or password";
+                $message = "Wrong username or password!";
             }
         } else {
-            $message = "wrong username or password";
+            $message = "Wrong username or password!";
         }
     }
 }
@@ -44,7 +45,7 @@ if ($_POST) {
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            height: 100vh;
+            height: 90vh;
         }
 
         .login-main {
@@ -67,6 +68,7 @@ if ($_POST) {
             font-size: 1rem;
             padding-left: 5rem;
             padding-right: 5rem;
+            margin-top:10rem;
         }
 
         label {
@@ -80,19 +82,20 @@ if ($_POST) {
             margin-bottom: 15px;
             box-sizing: border-box;
             border-style: none;
-            background: hsla(64, 100%, 50%, 0.39);
+            background:#B3B1B1;
         }
 
         .login-btn {
-            background-color: var(--clr-orange);
+            background-color: black;
             font-weight: bold;
             color: var(--clr-white);
             padding: 1rem;
             border: none;
-            border-radius: 1rem;
             cursor: pointer;
             width: 100%;
             margin-bottom: 1rem;
+            font-size:var(--fs-xxs);
+            font-family:var(--ff-main);
         }
 
         .login-btn-cont {
@@ -117,35 +120,40 @@ if ($_POST) {
         }
 
         .sign-up-link {
-            font-size: 12px;
+            font-size: 1rem;
+            font-weight:bold;
             text-decoration: none;
+            margin-top:2rem;
+            color:#04B404;
+        }
+
+        .sign-up-link2 {
+            font-size: 1rem;
+            text-decoration: none;
+            text-align: center;
+            align-content:center;
+            margin-top:1rem;
+            color: #8A0808;
+            font-weight:bold;
         }
     </style>
 
 </head>
 
 <body>
-    <header>
-        <nav class="top-nav">
-            <ul class="nav-list">
-                <li><a class="nav-list-link" href="./index.php">Home</a></li>
-                <li><a class="nav-list-link" href="#">Locations</a></li>
-                <li><img class="logo" src="./imgs/Hideyoshi.png" alt="logo"></li>
-                <li><a class="nav-list-link" href="#">Deliver</a></li>
-                <li><a class="nav-list-link" href="#">About</a></li>
-            </ul>
-        </nav>
-    </header>
+    
     <main class="login-main">
         <form class="login-form" method="post" action="login.php">
             <h2 class="login-title">Log In</h2>
             <input class="username-field" placeholder="Username" type="text" id="username" name="username" required>
             <input class="password-field" placeholder="Password" type="password" id="password" name="password" required>
             <button class="login-btn" type="submit">Log In</button>
+
             <div class="sign-up-cta">
                 <h2>Not a member yet?</h2>
                 <a class="sign-up-link" href="./sign-in.php">Create account!</a>
             </div>
+            <a class="sign-up-link2" href="./sign-in.php">Forgot password?</a>
             <p><?php echo $message; ?></p>
             <input type="hidden" name="login" value="1">
         </form>

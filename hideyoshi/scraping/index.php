@@ -1,5 +1,5 @@
 <?php
-    require_once '../database.php';
+    require_once '../../database.php';
 
     include('simple_html_dom.php');
     /*
@@ -118,7 +118,7 @@
 
     //get and download images
      foreach ($filenames as $index=>$image){
-        file_put_contents("../../hideyoshi/imgs".$image.".jpg", file_get_contents($image_urls[$index]));
+        file_put_contents("../imgs/".$image.".jpg", file_get_contents($image_urls[$index]));
         
      }
 
@@ -144,7 +144,7 @@
     for($i=0; $i<6; $i++){
     $database->insert("tb_dishes",[
         "people_category_id"=> 1,
-        "category_id"=> 4,
+        "category_id"=> 3,
         "dish_name"=> $menu_item_names[$i],
         "dish_image"=> $filenames[$i].".jpg",
         "dish_featured"=> "n",

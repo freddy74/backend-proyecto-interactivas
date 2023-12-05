@@ -7,9 +7,13 @@
 
 .quantity-input {
     width: 6rem;
-    background: var(--clr-orange);
-    color: var(--clr-white);
+    background-color:#E1DEDE;
+    color: black;
+    font-family: var(--ff-main);
+    font-size: var(--fs-xxs);
+    font-weight:bold;
     border: none;
     text-align: center;
-    border-radius: 2rem;
+    border: 2px solid white;
+    
 }

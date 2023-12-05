@@ -14,8 +14,8 @@ if (isset($_GET['category'])) {
     if ($category === "main_dishes") {
         $category_name = "Main Dishes";
         $category_number = "1";
-    } elseif ($category === "desserts") {
-        $category_name = "Desserts";
+    } elseif ($category === "Desserts") {
+        $category_name = "desserts";
         $category_number = "3";
     } elseif ($category === "appetizers") {
         $category_name = "Appetizers";

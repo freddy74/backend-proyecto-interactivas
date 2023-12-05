@@ -155,6 +155,6 @@
 .login-title{
     text-align: center;
     font-family: var(--ff-secondary);
-    font-size: var(--fs-l);
+    font-size: var(--fs-xl);
     margin-bottom: 1rem;
 }
