@@ -2,6 +2,8 @@
 require_once "../database.php";
 
 $dishes = $database->select("tb_dishes", "*");
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,22 +23,9 @@ $dishes = $database->select("tb_dishes", "*");
 <body class="body1">
     <header class="hero-container">
 
-        <nav class="top-nav">
-            <input class="mobile-check" type="checkbox">
-
-            <label class="mobile-btn">
-                <span></span>
-            </label>
-            <ul class="nav-list">
-                <li><a class="nav-list-link" href="./index.php">Home</a></li>
-                <li><a class="nav-list-link" href="./cart.php">Cart</a></li>
-            </ul>
-            <img class="logo" src="./imgs/Hideyoshi.png" alt="logo">
-            <ul class="responsive-top nav-list">
-                <li><a class="nav-list-link" href="./login.php">Login</a></li>
-                <li><a class="nav-list-link" href="#">About</a></li>
-            </ul>
-        </nav>
+    <?php 
+        include "./parts/nav.php"
+    ?>
 
         <section class="hero-text-container">
             <h1 class="hero-title">Enjoy the most traditional</h1>

@@ -113,7 +113,9 @@ if (isset($_GET['category'])) {
             category: categoryNumber //se agrega al array de info para traer la categoría desde la bd
         };
 
-        fetch("http://localhost/interactivas2023/backend-proyecto-interactivas/hideyoshi/response.php", {
+        //freddy: "http://localhost/interactivas2023/backend-proyecto-interactivas/hideyoshi/response.php"
+        //isaac: http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/response.php
+        fetch("http://localhost/backend_hideyoshi/backend-proyecto-interactivas-25-11/backend-proyecto-interactivas/hideyoshi/response.php", {
                 method: "POST",
                 mode: "same-origin",
                 credentials: "same-origin",

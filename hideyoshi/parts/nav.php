@@ -11,8 +11,6 @@
                 <li><a class="nav-list-link" href="./cart.php">Cart</a></li>
             </ul>
            
-           
-
 
             <?php
             

@@ -21,6 +21,7 @@ if ($_POST) {
             ]);
             //header("location: book.php?id=".$_POST["register"]);
             $message = "Succesfully registered!";
+
         }
     }
 }
@@ -33,10 +34,6 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel=" preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
 
     <style>
@@ -68,7 +65,7 @@ if ($_POST) {
             border-radius: 2rem;
         }
 
-
+        
 
         .sign-in-title {
             color: black;
@@ -77,7 +74,7 @@ if ($_POST) {
             font-size: var(--fs-xl);
             font-family: var(--ff-secondary);
             margin-left: 10rem;
-            margin-right: 10rem;
+            margin-right:10rem;
         }
 
         label {
@@ -101,13 +98,13 @@ if ($_POST) {
             border: 0.060rem solid #ccc;
             border-radius: 0.375rem;
             transition: border-color 0.3s ease-in-out;
-            background-color: hsla(64, 100%, 50%, 0.39);
-
-
+            background-color: hsla(64, 2%, 66%, 0.39);
+            
+            
         }
 
         form-elements:focus {
-            border-color: #E86A3C;
+            border-color: #E86A3C;           
         }
 
         .button {
@@ -152,17 +149,17 @@ if ($_POST) {
 
 
         form-items::placeholder {
-            color: rgba(170, 170, 170, 0.7);
+            color: rgba(170, 170, 170, 0.7); 
         }
 
 
-        .button-container {
-            align-content: center;
+        .button-container{
+            align-content:center;
             padding: 0;
             margin: 0;
         }
 
-        .button-go-category {
+        .button-go-category{
             font-family: var(--ff-main);
             font-weight: bold;
             font-size: var(--fs-xxs);
@@ -177,6 +174,9 @@ if ($_POST) {
             background-color: #8C8B8B; 
         }
 
+
+
+
     </style>
 </head>
 
@@ -187,46 +187,44 @@ if ($_POST) {
     <main>
         <section class='activity'>
             <form method="post" action="sign-in.php">
-                <h2 class="sign-in-title">Sign In</h2>
+                <h2 class= "sign-in-title">Sign In</h2>
                 <div>
 
-
+                
 
                     <label for='fullname'>Fullname</label>
                 </div>
                 <div>
-                    <input class="form-elements" id='fullname' class='form-input' type='text' name='Fullname' placeholder="Name">
+                    <input class= "form-elements" id='fullname' class='form-input' type='text' name='fullname' placeholder= "Name">
                 </div>
                 <div>
                     <label for='email'>Email Address</label>
                 </div>
                 <div>
-                    <input class="form-elements" id='email' class='form-input' type='text' name='email' placeholder="Email">
+                    <input class= "form-elements" id='email' class='form-input' type='text' name='email' placeholder= "Email">
                 </div>
                 <div>
                     <label for='username'>Username</label>
                 </div>
                 <div>
-                    <input class="form-elements" id='username' class='form-input' type='text' name='username' placeholder="Username">
+                    <input class= "form-elements" id='username' class='form-input' type='text' name='username' placeholder= "Username">
                 </div>
                 <div>
                     <label for='password'>Password</label>
                 </div>
                 <div>
-                    <input class="form-elements" id='password' class='form-input' type='password' name='password' placeholder="Password">
+                    <input  class= "form-elements"  id='password' class='form-input' type='password' name='password' placeholder= "Password">
                 </div>
                 <div>
-                    <input class="button" type='submit' value="REGISTER">
+                    <input  class="button" type='submit' value="REGISTER">
                 </div>
                 <p class="p">
                     <?php echo $message; ?>
                 </p>
-                <input class="form-elements" type="hidden" name="register" value="1">
-            </form>
-        </section>
 
-        <div class="button-container">
-            <a class="button-go-category" href="./index.php">Continue Watching</a>
+                <input  class= "form-elements" type="hidden" name="register" value="1">
+                <div class= "button-container">
+            <a class= "button-go-category" href="./index.php">Continue Watching</a>
         </div>
 
 
