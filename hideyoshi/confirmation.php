@@ -32,6 +32,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    .boton-enlace {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+</style>
 </head>
 <body>
 <table class="cart-table">
@@ -73,9 +83,9 @@
                 $date = date("Y-m-d H:i:s"); 
             ?>
 
-            <form method="post">
-                <input class="checkout-btn" type="submit" name="submit" value="Confirm">
-            </form>
+            <a href="./index.php" class="boton-enlace">Go to Homepage</a>
+            
+
     
 </body>
 </html>

@@ -11,6 +11,7 @@ if ($_POST) {
             if (password_verify($_POST["password"], $user[0]["user_password"])) {
                 session_start();
                 $_SESSION["id"] = $user[0]["user_id"];
+                $_SESSION["mail"] = $user[0]["user_email"];
                 $_SESSION["isLoggedIn"] = true;
                 $_SESSION["fullname"] = $user[0]["user_fullname"];
                 header("location: index.php");

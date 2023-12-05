@@ -51,7 +51,10 @@ if (isset($_GET['category'])) {
             </ul>
             <img class="logo" src="./imgs/Hideyoshi.png" alt="logo">
             <ul class="nav-list3">
-                <li><a class="nav-list-link3" href="#">Deliver</a></li>
+                <?php 
+                 echo "<li><a class='nav-list-link3' href='./profile.php'></a>".."</li>";
+                ?>
+               
                 <li><a class="nav-list-link3" href="#">About</a></li>
             </ul>
         </nav>

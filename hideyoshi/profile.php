@@ -1,3 +1,14 @@
+<?php 
+    require_once '../database.php';
+
+    // Reference: https://medoo.in/api/select
+    $histories = $database->select("tb_history","*");
+    $users = $database->select("tb_users","*");
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,8 +22,7 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            
-        
+            background: url(./imgs/profile_background.jpg);
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -57,6 +67,7 @@
             align-content:center;
             display:grid;
             grid-template-columns: 1fr 1fr ;
+            overflow: auto;
         }
         .container{
             width:100vw;
@@ -76,8 +87,23 @@
 
         }
 
+        .history-text{
+            margin-bottom: 1rem;
+        }
 
 
+        .btn {
+            display: inline-block;
+            padding: 0.625rem 1.25rem;
+            font-size: 1rem; 
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border: 0.0625rem solid #4CAF50; 
+            border-radius: 0.3125rem;
+            cursor: pointer;
+        }
     </style>
     </head>
 
@@ -97,13 +123,27 @@
        <!-- <label for="image-input" class="edit-image">Editar Foto</label>-->
        <section>
        <?php 
-            echo "<h2>Username</h2>";
-            echo "<h2>Email</h2>";
-            echo "<h2>Type</h2>";
+            echo "<h2>Username: ".$_SESSION["fullname"]."</h2>";
+            echo "<h2>Email: ".$_SESSION["mail"]."</h2>";
+            echo "<a href='./admin/dishes-list.php' class='btn'>Administration</a>";
+
         ?>
        </section>
       
         <div class= "history-container">
+            <?php 
+                foreach ($histories as $history) {
+                    foreach ($users as $user) {
+                        if ($history["id_user"] == $user["user_id"]) {
+                            echo 
+                            "<p class='history-text'>".$history["date"]."</p>".
+                            "<p class='history-text'>".$history["description"]."</p>";
+
+                        }
+                    }
+                }
+            ?>
+
 
         </div>
     </div>

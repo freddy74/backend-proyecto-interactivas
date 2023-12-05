@@ -106,7 +106,7 @@ if ($_GET) {
             /*display: flex;
             align-items: center;
             justify-content: center;*/
-            background: url(./imgs/waves_background.png);
+            background: url(./imgs/wood_background.png);
             background-repeat: no-repeat;
             background-size: cover;
             background-color: black;
